@@ -10,7 +10,7 @@ export const Index = () => {
                 <li>
                     <a href="/Reserva">Reservas</a>
                     <a href="/">Lugares</a>
-                    <a href="/">Ver reservas</a>
+                    <a href="VerR">Ver reservas</a>
                     <a href="/">Salir</a>
                 </li>
             </ul>
@@ -45,7 +45,6 @@ export const Index = () => {
                         <h3>CANCHAS</h3>
                         <img src="images/CANCHA_1.jpg" alt="Imagen 1" />
                         <img src="images/CANCHA_2.jpg" alt="Imagen 2" />
-                        <img src="images/CANCHA_3.jpg" alt="Imagen 3" />
 
                     </div>
                 </div>
@@ -55,7 +54,6 @@ export const Index = () => {
                         <h3>SALONES SOCIALES</h3>
                         <img src="images/SALONES_1.jpg" alt="Imagen 2" />
                         <img src="images/SALONES_2.png" alt="Imagen 2" />
-                        <img src="images/SALONES_3.jpg" alt="Imagen 3" />
 
 
                     </div>
@@ -67,7 +65,6 @@ export const Index = () => {
                         <h3>AIRE LIBRE</h3>
                         <img src="images/AIRE LIBRE_1.jpg" alt="Imagen 1" />
                         <img src="images/AIRE LIBRE_2.jpg" alt="Imagen 2" />
-                        <img src="images/AIRE LIBRE_3.jpg" alt="Imagen 3" />
 
                     </div>
                 </div>

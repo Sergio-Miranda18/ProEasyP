@@ -9,6 +9,7 @@ import { Reserva } from '../page/user/Reserva';
 import { GestionarServicios } from '../page/Admin/GestionarServicios';
 import { ProtectedRoute } from './ProtectedRoute';
 import { IndexPage } from '../page/indexPage';
+import { VerReservas } from '../page/user/VerR';
 
 export const AppRouter = () => {
   return (
@@ -27,6 +28,9 @@ export const AppRouter = () => {
             } />
             <Route path="/Reserva" element={
               <ProtectedRoute allowedRoles={['USER']} element={<Reserva />} />
+            } />
+              <Route path="/VerR" element={
+              <ProtectedRoute allowedRoles={['USER']} element={<VerReservas />} />
             } />
 
             {"ADMINISTRADOR"}

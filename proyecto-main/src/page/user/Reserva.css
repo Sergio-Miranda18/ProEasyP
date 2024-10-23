@@ -1,9 +1,11 @@
+/* Estilos para la página de reserva */
 .reserva-page {
     background: url('/images/side-view-huge-decorated-served-table.jpg') no-repeat center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .container-form {
@@ -78,4 +80,59 @@
 
 .back-button a:hover {
     color: #bbb; 
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container-form {
+        max-width: 90%; /* Ajusta el ancho al 90% para tabletas */
+        padding: 15px;  /* Reduce padding para ajustarse a pantallas medianas */
+    }
+
+    .container-form h2 {
+        font-size: 1.8em; /* Reduce tamaño del título en tabletas */
+    }
+
+    .form-buttons {
+        flex-direction: column; /* Botones uno debajo del otro en pantallas medianas */
+    }
+
+    .form-buttons button {
+        width: 100%; /* Botones ocupan todo el ancho */
+        margin-bottom: 10px; /* Añade espacio entre botones */
+    }
+}
+
+@media (max-width: 480px) {
+    .container-form {
+        max-width: 100%; /* El formulario ocupa todo el ancho en móviles */
+        padding: 10px; /* Menor padding en pantallas pequeñas */
+    }
+
+    .container-form h2 {
+        font-size: 1.5em; /* Reduce aún más el tamaño del título en móviles */
+    }
+
+    .form-group label {
+        font-size: 1em; /* Ajusta el tamaño de las etiquetas en móviles */
+    }
+
+    .form-group select,
+    .form-group input {
+        font-size: 0.8em; /* Tamaño de texto más pequeño en móviles */
+        padding: 6px; /* Reduce padding en los inputs */
+    }
+
+    .form-buttons {
+        flex-direction: column; /* Botones apilados en móviles */
+    }
+
+    .form-buttons button {
+        width: 100%; /* Botones ocupan todo el ancho */
+        margin-bottom: 10px; /* Añade espacio entre botones */
+    }
+
+    .back-button a {
+        font-size: 0.9em; /* Reduce tamaño del texto del botón de regresar */
+    }
 }

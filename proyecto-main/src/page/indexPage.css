@@ -1,9 +1,6 @@
 .Index-Page {
     background: url('/images/side-view-huge-decorated-served-table.jpg') no-repeat center/cover;
     height: 100vh;
-}
-
-.Index-Page {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 2.7fr;
@@ -17,58 +14,51 @@
 
 .Header-Login {
     grid-area: Header-Login;
-}
-
-.index-login {
-    grid-area: index-login;
-}
-.loginindex {
-    z-index: 99;
-    opacity: 0;
-    transform: scale(0);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.loginindex.show {
-    opacity: 1;
-    transform: scale(1);
-}
-.registerindex {
-    z-index: 100;
-    opacity: 0;
-    transform: scale(0);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.registerindex.show {
-    opacity: 1;
-    transform: scale(1);
-   
-}
-.Header-Login {
     position: fixed;
     width: 100%;
-    padding: 20px 100px;
+    padding: 20px 50px;
     display: flex;
-    font-size: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    z-index: 100;
 }
 
 .Logo {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #fff;
     cursor: pointer;
-    margin-right: 200px;
+    margin-right: 100px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.Slogan-Wrapper {
+    position: absolute;
+    top: 90px;
+    left: 50px;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    z-index: 10;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
 }
 
 .navegacion a {
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    margin-left: 70px;
+    margin-left: 40px;
 }
-
 
 .navegacion a::after {
     content: "";
@@ -89,30 +79,109 @@
 }
 
 .navegacion .btnInciarSesion {
-    width: 140px;
-    height: 50px;
+    width: 120px;
+    height: 45px;
     background: transparent;
     border: 2px solid #fff;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #fff;
     font-weight: 600;
-    margin-left: 40px;
-    transition: background-color 0.3s ease, color 0.3s ease; 
+    margin-left: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navegacion .btnInciarSesion:hover {
-    background: #fff;
-    color: #090f1d;  
-}
-
-
-.navegacion .btn:hover {
     background: #fff;
     color: #090f1d;
 }
 
 .index-login {
+    grid-area: index-login;
     z-index: 99;
+}
+
+.loginindex {
+    z-index: 99;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.loginindex.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.registerindex {
+    z-index: 100;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.registerindex.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+    .Header-Login {
+        padding: 15px 20px;
+        font-size: 1.5rem;
+    }
+
+    .Logo {
+        font-size: 2rem;
+        margin-right: 50px;
+    }
+
+    .Slogan-Wrapper {
+        top: 70px;
+        left: 30px;
+        font-size: 1rem;
+    }
+
+    .navegacion a {
+        margin-left: 20px;
+        font-size: 0.9rem;
+    }
+
+    .navegacion .btnInciarSesion {
+        width: 100px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Header-Login {
+        padding: 10px 15px;
+        font-size: 1.2rem;
+    }
+
+    .Logo {
+        font-size: 1.5rem;
+        margin-right: 30px;
+    }
+
+    .Slogan-Wrapper {
+        top: 60px;
+        left: 20px;
+        font-size: 0.9rem;
+    }
+
+    .navegacion a {
+        margin-left: 10px;
+        font-size: 0.8rem;
+    }
+
+    .navegacion .btnInciarSesion {
+        width: 80px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
 }

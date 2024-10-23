@@ -1,0 +1,98 @@
+/* Estilos generales */
+.ver-reservas-container {
+    background-image: url('/public/images/side-view-huge-decorated-served-table.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #f1efef;
+}
+
+/* Encabezado */
+.header {
+    background-color: rgba(9, 15, 29, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.header h1 {
+    font-size: 48px;
+    margin: 0;
+    color: #f1efef;
+}
+
+/* Lista de reservas */
+.reservas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Tarjeta de reserva */
+.reserva-card {
+    background-color: rgba(17, 16, 15, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.reserva-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ec9819;
+}
+
+.reserva-card p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.reserva-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 254, 254, 0.95);
+}
+/* Botón de Atrás */
+.btn-atras {
+    background-color: #ec9819;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 50px; /* Aumenta este valor para bajarlo más */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-atras:hover {
+    background-color: #c2692a;
+    transform: translateY(-2px);
+}
+
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 36px;
+    }
+
+    .reservas-list {
+        grid-template-columns: 1fr;
+    }
+
+    .reserva-card h2 {
+        font-size: 20px;
+    }
+}

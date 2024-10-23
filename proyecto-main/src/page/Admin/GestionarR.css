@@ -1,0 +1,233 @@
+/* Estilos generales para la página */
+.reserva {
+    background-color: rgb(185, 118, 4);
+    background-image: url('/public/images/side-view-huge-decorated-served-table.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    max-width: 100%;
+}
+
+/* Encabezado */
+.header-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    background-color: #d47414;
+    text-align: center;
+    font-size: 55px;
+    font-weight: bold;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.header2:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .header2 {
+        font-size: 35px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header2 {
+        font-size: 25px;
+        padding: 15px;
+    }
+}
+
+/* Botón de agregar servicio */
+.btn-agregar {
+    background-color: #090f1d; /* Color oscuro coherente con el login */
+    color: #f1efef; /* Texto claro para contraste */
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-agregar:hover {
+    background-color: #1a233a; /* Oscurece el fondo al hacer hover */
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .btn-agregar {
+        width: 100%; /* Botón ocupa todo el ancho en pantallas pequeñas */
+    }
+}
+
+/* Tabla de servicios */
+.tabla-servicios {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-servicios th, .tabla-servicios td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.tabla-servicios th {
+    background-color: #090f1d; /* Color coherente con el tema del login */
+    color: #f1efef;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.tabla-servicios td {
+    font-size: 14px;
+    color: #333;
+}
+
+.tabla-servicios tr:hover {
+    background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+    .tabla-servicios th, .tabla-servicios td {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Botones de acciones */
+.btn-editar, .btn-eliminar {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.btn-editar:hover {
+    color: #027cff;
+}
+
+.btn-eliminar:hover {
+    color: red;
+}
+
+/* Paginación */
+.paginacion {
+    text-align: right;
+    margin-top: 15px;
+}
+
+.paginacion span {
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-width: 95%;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Grupos de entrada */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Botones en el modal */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btnprimary-1, .btnprimary-2 {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btnprimary-1 {
+    background-color: #090f1d;
+    color: #f1efef;
+}
+
+.btnprimary-1:hover {
+    background-color: #1a233a; /* Oscurecer en hover */
+}
+
+.btnprimary-2 {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.btnprimary-2:hover {
+    background-color: #46a049;
+}
+
+@media (max-width: 768px) {
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .btnprimary-1, .btnprimary-2 {
+        width: 100%; /* Botones en modal ocupan todo el ancho */
+        margin-bottom: 10px;
+    }
+}

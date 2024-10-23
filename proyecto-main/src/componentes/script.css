@@ -1,18 +1,17 @@
-
 .dropdown-content {
   display: flex;
   position: absolute;
-  background-color: #ffffff;
+  background-color: #c59f6b;
   min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 2;
   right: 0;
   border-radius: 5px;
+  padding: 10px; 
 }
 
 .dropdown-content a p {
   color: #000000;
-  padding: 16px 18px;
   text-decoration: none;
   display: grid;
   align-items: center;
@@ -26,8 +25,29 @@
   margin-right: 10px;
 }
 
-.arriba p{
+.arriba p {
   color: #000000;
   text-align: center;
 }
 
+
+.abajo button {
+  width: auto; 
+  padding: 5px 10px; 
+  margin: 5px 0;
+  background-color: #dc8718; 
+  color: #ffffff;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 0.9em; 
+  transition: background-color 0.3s ease; 
+}
+
+.abajo button:hover {
+  background-color: #b37c15; 
+}
+
+.abajo button i {
+  margin-right: 5px; 
+}
