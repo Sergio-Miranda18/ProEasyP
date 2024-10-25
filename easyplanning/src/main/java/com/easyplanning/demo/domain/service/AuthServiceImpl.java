@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
     private final UsuarioRepository userRepository;
-
+    private final EmailServiceImpl emailService;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -43,6 +43,32 @@ public class AuthServiceImpl implements AuthService {
                 .build();
         userRepository.save(user);
         var jwtToken = jwtService.genereteToken((UserDetails) user);
+        // Enviar correo electrónico de activación
+        String mensajeHtml = String.format(
+                "<h1>Estimado/a %s %s</h1>" +
+                        "<p>¡Nos complace darte la bienvenida a EasyPlanning! Tu cuenta ha sido creada con éxito y ahora puedes comenzar a disfrutar de nuestros servicios para planificar y reservar eventos de manera fácil y rápida." +
+                        "<br /><br />" +
+                        "Tus credenciales de acceso son las siguientes:" +
+                        "<br /><br />" +
+                        "Usuario: %s" +
+                        "<br /><br />" +
+                        "Recuerda que puedes iniciar sesión en cualquier momento para gestionar tus reservas y explorar nuestras opciones de lugares, servicios y paquetes." +
+                        "<br /><br />" +
+                        "Si tienes alguna duda, no dudes en contactarnos." +
+                        "<br /><br />" +
+                        "¡Gracias por unirte a EasyPlanning!"+
+                        "<br /><br />" +
+                        "<br /><br />" +
+                        "Saludos cordiales," +
+                        "El equipo de EasyPlanning<br /><br />" ,
+                user.getNombre(), user.getApellido(), user.getEmail()
+        );
+
+        emailService.sendEmails(
+                new String[]{user.getEmail()},
+                "¡Bienvenido a EasyPlanning! Tu cuenta ha sido creada con éxito",
+                mensajeHtml
+        );
 
         return AuthResponse.builder()
                 .token(jwtToken).build();

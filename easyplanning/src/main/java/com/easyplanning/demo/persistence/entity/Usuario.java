@@ -33,8 +33,6 @@ public class Usuario implements UserDetails {
     @Column(name = "Documento")
     private String documento;
 
-
-
     @Column(name = "Clave")
     private String clave;
 
