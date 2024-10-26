@@ -16,5 +16,6 @@ public class LocalDTO {
     private String ubicacion;
     private double precio;
     private Categoria categoria;
+    private String descripcion;
 
 }

@@ -25,6 +25,9 @@ public class Local {
     @Column(name = "Ubicacion")
     private String ubicacion;
 
+    @Column(name = "Descripcion")
+    private String descripcion;
+
 
     @Column(name = "Precio")
     private double precio;

@@ -37,7 +37,7 @@ public class Usuario implements UserDetails {
     private String clave;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "Rol_id")
+    @Column(name = "Rol")
     private Roles rol;
 
     @Override
