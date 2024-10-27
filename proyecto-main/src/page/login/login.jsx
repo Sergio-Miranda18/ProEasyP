@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-export const Login = ({ setShowLogin, setShowRegister }) => {
+export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -18,6 +18,12 @@ export const Login = ({ setShowLogin, setShowRegister }) => {
     setShowLogin(false);
     setTimeout(() => {
       setShowRegister(true);
+    }, 500);
+  };
+  const recuperacion = () => {
+    setShowLogin(false);
+    setTimeout(() => {
+      setShowRecuperacion(true);
     }, 500);
   };
 
@@ -94,7 +100,7 @@ export const Login = ({ setShowLogin, setShowRegister }) => {
                 />
                 Recordar Sesión
               </label>
-              <a href="#">¿Olvidaste tu contraseña?</a>
+              <a href="#" onClick={recuperacion}>¿Olvidaste tu contraseña?</a>
             </div>
 
             <button type="submit" className="btnIniciar-login">Iniciar Sesión</button>
