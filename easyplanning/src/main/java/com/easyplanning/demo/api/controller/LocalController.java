@@ -36,4 +36,14 @@ public class LocalController {
         }
         return ResponseEntity.notFound().build();
     }
+    @GetMapping("/{idLocal}")
+    public ResponseEntity<Double> getPrecioById(@PathVariable Long idLocal) {
+        Optional<LocalDTO> localDTOOptional = localService.findById(idLocal);
+        if (localDTOOptional.isPresent()) {
+            Double precio = localDTOOptional.get().getPrecio(); // Asume que getPrecio() devuelve el precio del lugar
+            return ResponseEntity.ok(precio);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
 }

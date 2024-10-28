@@ -6,7 +6,7 @@ import axios from 'axios';
 
 export const Reserva = () => {
     const [formData, setFormData] = useState({
-        email: localStorage.getItem('username') || '',
+        email: localStorage.getItem('email') || '',
         precio: '',
         fechaHora: '',
         local: '',
@@ -47,28 +47,35 @@ export const Reserva = () => {
 
     const handleLocalChange = async (e) => {
         const selectedLocal = e.target.value;
-        setFormData({
-            ...formData,
+        setFormData((prevData) => ({
+            ...prevData,
             local: selectedLocal,
-        });
-
+        }));
+console.log(selectedLocal)
         // Realizar solicitud para obtener el precio del lugar seleccionado
         if (selectedLocal) {
             try {
                 const response = await axios.get(`http://localhost:8080/api/local/${selectedLocal}`);
+                console.log(response)
                 setFormData((prevFormData) => ({
                     ...prevFormData,
-                    precio: response.data.precio, // Asignar el precio obtenido
+                    precio: response.data || "", // Asignar el precio obtenido o vacío si no existe
                 }));
             } catch (error) {
                 console.error('Error al obtener el precio del lugar seleccionado', error);
             }
+
+        } else {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                precio: "", // Reiniciar el precio si no hay selección
+            }));
         }
     };
 
     const handleReset = () => {
         setFormData({
-            email: localStorage.getItem('username') || '',
+            email: localStorage.getItem('email') || '',
             precio: '',
             fechaHora: '',
             local: '',

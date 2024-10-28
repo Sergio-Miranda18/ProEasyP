@@ -35,7 +35,7 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
         const { token, authorities } = response.data;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify({ user: email, roles: authorities[0] }));
-
+        localStorage.setItem('email', email);
         if (authorities.includes('ADMIN')) {
           window.location.href = '/GestionarReserva';
         } else if (authorities.includes('USER')) {
