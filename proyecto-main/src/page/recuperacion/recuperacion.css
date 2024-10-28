@@ -4,7 +4,7 @@ html, body {
     overflow-y: auto; /* Permitir el desplazamiento vertical en el cuerpo */
 }
 
-.registro {
+.recuperacion {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,32 +13,33 @@ html, body {
     width: 100%;
 }
 
-.datosregistro {
+.datosrecuperacion {
     position: relative;
-    width: 500px; /* Ajustar el ancho del formulario */
-    max-height: 80vh; /* Limitar la altura máxima del formulario */
-    padding: 20px; 
-    background: rgba(255, 255, 255, 0.1); 
-    border: 3px solid rgba(255, 255, 255, 0.5);
+    width: 500px;
+    height: 50vh;
+    background: transparent;
+    border: 3px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     display: flex;
-    flex-direction: column; /* Mantener en una columna */
-    overflow: auto; /* Permitir el desplazamiento dentro del formulario */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease, height .2s ease;
 }
 
 /* Estilos para la barra de desplazamiento */
-.datosregistro::-webkit-scrollbar {
+.datosrecuperacion::-webkit-scrollbar {
     width: 8px; /* Ancho de la barra de desplazamiento */
 }
 
-.datosregistro::-webkit-scrollbar-thumb {
+.datosrecuperacion::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.5); /* Color de la barra de desplazamiento */
     border-radius: 10px; /* Bordes redondeados */
 }
 
-.datosregistro::-webkit-scrollbar-track {
+.datosrecuperacion::-webkit-scrollbar-track {
     background: transparent; /* Fondo de la pista de la barra de desplazamiento */
 }
 
@@ -63,22 +64,22 @@ html, body {
     background-color: rgba(9, 15, 29, 1);
 }
 
-.contenedor-form-register h2 {
+.contenedor-form-recuperacion h2 {
     font-size: 2em; 
     color: #f1efef;
     text-align: center;
     margin-bottom: 10px;
 }
 
-.contenedor-input-resgistro  {
+.contenedor-input {
     position: relative;
     width: 100%;
     height: 45px; 
     border-bottom: 2px solid #f1efef;
-    margin: 25px 0; 
+    margin: 15px 0; 
 }
 
-.contenedor-input-resgistro  label {
+.contenedor-input label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -90,13 +91,13 @@ html, body {
     color: #f1efef;
 }
 
-.contenedor-input-resgistro input:focus ~ label,
-.contenedor-input-resgistro input:valid ~ label {
+.contenedor-input input:focus ~ label,
+.contenedor-input input:valid ~ label {
     top: -10px;
     font-size: 0.8em; 
 }
 
-.contenedor-input-resgistro  input {
+.contenedor-input input {
     width: 100%;
     height: 100%;
     background: transparent;
@@ -107,7 +108,7 @@ html, body {
     padding: 0 35px 0 5px;
 }
 
-.contenedor-input-resgistro  .icono {
+.contenedor-input .icono {
     position: absolute;
     right: 8px;
     font-size: 1.2em; 
@@ -115,7 +116,7 @@ html, body {
     line-height: 45px;
 }
 
-.btnregistrar {
+.btnrecuperacion {
     width: 100%;
     height: 40px; 
     border: none;
@@ -130,39 +131,25 @@ html, body {
     transition: background-color 0.3s ease;
 }
 
-.btnregistrar:hover {
+.btnrrecuperacion:hover {
     background-color: #131e36;
 }
-
-.recordar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 5px; 
-}
-
-.recordar label {
-    color: #f1efef;
-    font-size: 0.9em; 
-}
-
-.registrar {
+.inicio {
     text-align: center;
     margin-top: 10px; 
 }
 
-.registrar p {
+.inicio p {
     color: #f1efef;
     font-size: 0.9em; 
 }
 
-.registrar a {
+.inicio a {
     color: #f1efef;
     font-weight: bold;
     text-decoration: none;
 }
 
-.registrar a:hover {
+.inicio a:hover {
     text-decoration: underline;
 }
