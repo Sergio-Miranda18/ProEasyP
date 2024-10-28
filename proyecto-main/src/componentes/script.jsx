@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react';
 import './script.css';
 
 export const Script = () => {
-  const [user, setUser] = useState(localStorage.getItem('username'));
-
+  const [user, setUser] = useState(localStorage.getItem('users'));
+  const handleLogout = () => {
+    localStorage.setItem('token', '');
+    localStorage.setItem('users', '');
+    window.location.href = "/"
+  };
   useEffect(() => {
     // Actualizar el estado del usuario cuando cambie el valor en localStorage
-    setUser(localStorage.getItem('username'));
+    setUser(localStorage.getItem('users'));
   }, []);
 
   return (
@@ -16,7 +20,7 @@ export const Script = () => {
           {user && <p>Bienvenido, {user}!</p>}
         </div>
         <div className="abajo">
-          <button onClick={() => window.location.href = "/"}>
+          <button onClick={handleLogout }>
             <i className="fa fa-sign-out"></i>Salir
           </button>
         </div>
@@ -27,7 +31,11 @@ export const Script = () => {
 
 export const ScriptUser = () => {
   const [user, setUser] = useState(localStorage.getItem('username'));
-
+  const handleLogout = () => {
+    localStorage.setItem('token', '');
+    localStorage.setItem('user', JSON.stringify(''));
+    window.location.href = "/"
+  };
   useEffect(() => {
     // Actualizar el estado del usuario cuando cambie el valor en localStorage
     setUser(localStorage.getItem('username'));
@@ -40,7 +48,7 @@ export const ScriptUser = () => {
           {user && <p>Bienvenido, {user}!</p>}
         </div>
         <div className="abajo">
-          <button onClick={() => window.location.href = "/EditarPerfilUser"}>
+          <button onClick={handleLogout}>
             <i className="fa fa-plus"></i>Editar usuario
           </button>
           <button onClick={() => window.location.href = "/"}>
