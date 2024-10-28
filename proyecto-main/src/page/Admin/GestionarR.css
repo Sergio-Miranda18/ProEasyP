@@ -1,3 +1,4 @@
+/* Estilos generales para la página */
 .reserva {
     background-color: rgb(185, 118, 4);
     background-image: url('/public/images/side-view-huge-decorated-served-table.jpg');
@@ -11,7 +12,8 @@
     max-width: 100%;
 }
 
-.header2 {
+/* Encabezado */
+.header-2 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
@@ -43,6 +45,7 @@
     }
 }
 
+/* Botón de agregar servicio */
 .btn-agregar {
     background-color: #090f1d; /* Color oscuro coherente con el login */
     color: #f1efef; /* Texto claro para contraste */
@@ -106,6 +109,7 @@
     }
 }
 
+/* Botones de acciones */
 .btn-editar, .btn-eliminar {
     background-color: transparent;
     border: none;
@@ -122,6 +126,7 @@
     color: red;
 }
 
+/* Paginación */
 .paginacion {
     text-align: right;
     margin-top: 15px;
@@ -133,6 +138,7 @@
     font-weight: bold;
 }
 
+/* Modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -161,6 +167,7 @@
     font-size: 24px;
 }
 
+/* Grupos de entrada */
 .input-group {
     margin-bottom: 15px;
     text-align: left;
@@ -172,7 +179,7 @@
     margin-bottom: 5px;
 }
 
-.input-group input {
+.input-group input, select{
     width: 100%;
     padding: 8px;
     border-radius: 5px;
@@ -180,6 +187,7 @@
     box-sizing: border-box;
 }
 
+/* Botones en el modal */
 .modal-buttons {
     display: flex;
     justify-content: space-between;

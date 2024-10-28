@@ -1,14 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
-import { Toast, ToastContainer } from 'react-bootstrap';
 import './Reserva.css';
 import axios from 'axios';
 
 export const Reserva = () => {
+    const generarPrecioAleatorio = () => {
+        return Math.floor(Math.random() * (5000000 - 300000 + 1)) + 300000;
+    };
+
     const [formData, setFormData] = useState({
         email: localStorage.getItem('username') || '',
         precio: '',
-        fechaHora: '',
+        fecha: '',
         local: '',
         categoria: '',
         estado: 'EN PROCESO',
@@ -18,24 +21,38 @@ export const Reserva = () => {
     const [localTypes, setLocalTypes] = useState([]);
     const [categoriaTypes, setCategoriaTypes] = useState([]);
     const [paqueteTypes, setPaquetesTypes] = useState([]);
-    const [showToast, setShowToast] = useState(false);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchLocalTypes = async () => {
             try {
-                const [localResponse, paqueteResponse, categoriaResponse] = await Promise.all([
-                    axios.get('http://localhost:8080/api/local/get'),
-                    axios.get('http://localhost:8080/api/paquete/get'),
-                    axios.get('http://localhost:8080/api/categoria/get'),
-                ]);
-                setLocalTypes(localResponse.data);
-                setPaquetesTypes(paqueteResponse.data);
-                setCategoriaTypes(categoriaResponse.data);
+                const response = await axios.get('http://localhost:8080/api/local/get');
+                setLocalTypes(response.data);
             } catch (error) {
-                console.error('Error al obtener datos de la base de datos', error);
+                console.error('Error al obtener tipos de identificación de la base de datos', error);
             }
         };
-        fetchData();
+
+        const fetchPaqueteTypes = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/api/paquete/get');
+                setPaquetesTypes(response.data);
+            } catch (error) {
+                console.error('Error al obtener tipos de identificación de la base de datos', error);
+            }
+        };
+
+        const fetchCategoriaTypes = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/api/categoria/get');
+                setCategoriaTypes(response.data);
+            } catch (error) {
+                console.error('Error al obtener tipos de persona de la base de datos', error);
+            }
+        };
+
+        fetchLocalTypes();
+        fetchPaqueteTypes();
+        fetchCategoriaTypes();
     }, []);
 
     const handleChange = (e) => {
@@ -45,32 +62,11 @@ export const Reserva = () => {
         });
     };
 
-    const handleLocalChange = async (e) => {
-        const selectedLocal = e.target.value;
-        setFormData({
-            ...formData,
-            local: selectedLocal,
-        });
-
-        // Realizar solicitud para obtener el precio del lugar seleccionado
-        if (selectedLocal) {
-            try {
-                const response = await axios.get(`http://localhost:8080/api/local/${selectedLocal}`);
-                setFormData((prevFormData) => ({
-                    ...prevFormData,
-                    precio: response.data.precio, // Asignar el precio obtenido
-                }));
-            } catch (error) {
-                console.error('Error al obtener el precio del lugar seleccionado', error);
-            }
-        }
-    };
-
     const handleReset = () => {
         setFormData({
             email: localStorage.getItem('username') || '',
             precio: '',
-            fechaHora: '',
+            fecha: '',
             local: '',
             categoria: '',
             estado: 'EN PROCESO',
@@ -78,25 +74,37 @@ export const Reserva = () => {
         });
     };
 
+    const handleCalculatePrice = () => {
+        const precioAleatorio = generarPrecioAleatorio();
+        setFormData({
+            ...formData,
+            precio: precioAleatorio,
+        });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         try {
-            const selectedLocal = localTypes.find(type => type.idLocal === parseInt(formData.local));
-            const selectedCategoria = categoriaTypes.find(type => type.id === parseInt(formData.categoria));
-            const selectedPaquete = paqueteTypes.find(type => type.id === parseInt(formData.paquete));
-            setShowToast(true);
+            const selectedLocalTypes = localTypes.find(type => type.idLocal === parseInt(formData.local));
+            const selectedCategoriaTypes = categoriaTypes.find(type => type.id === parseInt(formData.categoria));
+            const selectedPaquetesTypes = paqueteTypes.find(type => type.id === parseInt(formData.paquete));
+
             await axios.post('http://localhost:8080/api/reserva/save', {
-                local: { idLocal: selectedLocal ? selectedLocal.idLocal : null },
+                local: { idLocal: selectedLocalTypes ? selectedLocalTypes.idLocal : null },
                 email: { email: formData.email },
                 estado: formData.estado,
-                fecha: formData.fechaHora, // Enviar fecha y hora como un solo valor
+                fecha: formData.fecha,
                 precio: formData.precio,
-                categoria: { id: selectedCategoria ? selectedCategoria.id : null },
-                paquete: { id: selectedPaquete ? selectedPaquete.id : null },
+                categoria: { id: selectedCategoriaTypes ? selectedCategoriaTypes.id : null },
+                paquete: { id: selectedPaquetesTypes ? selectedPaquetesTypes.id : null },
             });
+
+            alert('Reserva registrada correctamente');
         } catch (error) {
             console.error('Error al guardar la información en la base de datos', error);
         }
+
         handleReset();
     };
 
@@ -107,7 +115,7 @@ export const Reserva = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="local">Lugar</label>
-                        <select className="form-select" id="local" name="local" value={formData.local} onChange={handleLocalChange} required>
+                        <select className="form-select" id="local" name="local" value={formData.local} onChange={handleChange} required>
                             <option key="" value="">Seleccione el tipo</option>
                             {localTypes.map(type => (
                                 <option key={type.idLocal} value={type.idLocal}>{type.nombre}</option>
@@ -133,14 +141,15 @@ export const Reserva = () => {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="fechaHora">Fecha y Hora del evento</label>
-                        <input type="datetime-local" className="form-control" id="fechaHora" name="fechaHora" value={formData.fechaHora} onChange={handleChange} required />
+                        <label htmlFor="fecha">Fecha del evento</label>
+                        <input type="date" className="form-control" id="fecha" name="fecha" value={formData.fecha} onChange={handleChange} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="precio">Precio</label>
                         <input type="text" className="form-control" id="precio" name="precio" value={formData.precio} readOnly disabled required />
                     </div>
                     <div className="form-buttons">
+                        <button type="button" className="btn btn-secondary" onClick={handleCalculatePrice}>Calcular Precio</button>
                         <button type="submit" className="btn btn-primary">Reservar</button>
                     </div>
                     <div className="back-button">
@@ -148,22 +157,6 @@ export const Reserva = () => {
                     </div>
                 </form>
             </div>
-
-            <ToastContainer position="top-end" className="p-3">
-                <Toast 
-                    className="custom-toast" 
-                    onClose={() => setShowToast(false)} 
-                    show={showToast} 
-                    delay={6000} 
-                    autohide
-                >
-                    <Toast.Header className="custom-toast-header">
-                        <strong className="me-auto">Reserva</strong>
-                        <small>Ahora</small>
-                    </Toast.Header>
-                    <Toast.Body>¡Reserva registrada correctamente!</Toast.Body>
-                </Toast>
-            </ToastContainer>
         </div>
     );
 };
