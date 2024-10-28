@@ -125,17 +125,6 @@
     opacity: 1;
     transform: scale(1);
 }
-.recuperacionindex {
-    z-index: 100;
-    opacity: 0;
-    transform: scale(0);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.recuperacionindex.show {
-    opacity: 1;
-    transform: scale(1);
-}
 
 /* Media queries for responsiveness */
 

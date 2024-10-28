@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) => {
+export const Login = ({ setShowLogin, setShowRegister }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -20,12 +20,6 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
       setShowRegister(true);
     }, 500);
   };
-  const recuperacion = () => {
-    setShowLogin(false);
-    setTimeout(() => {
-      setShowRecuperacion(true);
-    }, 500);
-  };
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -35,6 +29,8 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
         const { token, authorities } = response.data;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify({ user: email, roles: authorities[0] }));
+        localStorage.setItem('users', email);
+
 
         if (authorities.includes('ADMIN')) {
           window.location.href = '/GestionarReserva';
@@ -100,7 +96,7 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
                 />
                 Recordar Sesión
               </label>
-              <a href="#" onClick={recuperacion}>¿Olvidaste tu contraseña?</a>
+              <a href="#">¿Olvidaste tu contraseña?</a>
             </div>
 
             <button type="submit" className="btnIniciar-login">Iniciar Sesión</button>

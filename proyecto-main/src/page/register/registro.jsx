@@ -87,7 +87,7 @@ export const Registro = ({ setShowLogin, setShowRegister }) => {
                 <div className="contenedor-form-register">
                     <h2>Registrarse</h2>
                     <form onSubmit={onLogin}>
-                        <div className="contenedor-input-resgistro">
+                        <div className="contenedor-input">
                             <span className="icono">
                                 <FontAwesomeIcon icon={faUser} />
                             </span>
@@ -95,7 +95,7 @@ export const Registro = ({ setShowLogin, setShowRegister }) => {
                             <label>Nombre</label>
                         </div>
 
-                        <div className="contenedor-input-resgistro">
+                        <div className="contenedor-input">
                             <span className="icono">
                                 <FontAwesomeIcon icon={faUser} />
                             </span>
@@ -103,7 +103,7 @@ export const Registro = ({ setShowLogin, setShowRegister }) => {
                             <label>Apellido</label>
                         </div>
 
-                        <div className="contenedor-input-resgistro">
+                        <div className="contenedor-input">
                             <span className="icono">
                                 <FontAwesomeIcon icon={faIdCard} />
                             </span>
@@ -111,7 +111,7 @@ export const Registro = ({ setShowLogin, setShowRegister }) => {
                             <label>Documento de Identidad</label>
                         </div>
 
-                        <div className="contenedor-input-resgistro">
+                        <div className="contenedor-input">
                             <span className="icono">
                                 <FontAwesomeIcon icon={faEnvelope} />
                             </span>
@@ -119,7 +119,7 @@ export const Registro = ({ setShowLogin, setShowRegister }) => {
                             <label>Email</label>
                         </div>
 
-                        <div className="contenedor-input-resgistro">
+                        <div className="contenedor-input">
                             <span className="icono">
                                 <FontAwesomeIcon icon={faPhone} />
                             </span>
@@ -127,7 +127,7 @@ export const Registro = ({ setShowLogin, setShowRegister }) => {
                             <label>Teléfono</label>
                         </div>
 
-                        <div className="contenedor-input-resgistro">
+                        <div className="contenedor-input">
                             <span className="icono">
                                 <FontAwesomeIcon icon={faLock} />
                             </span>
@@ -135,7 +135,7 @@ export const Registro = ({ setShowLogin, setShowRegister }) => {
                             <label>Contraseña</label>
                         </div>
 
-                        <div className="contenedor-input-resgistro">
+                        <div className="contenedor-input">
                             <span className="icono">
                                 <FontAwesomeIcon icon={faLock} />
                             </span>

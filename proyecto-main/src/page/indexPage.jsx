@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import './indexPage.css'
 import { Login } from './login/login';
 import { Registro } from './register/registro';
-import { Recuperacion } from './recuperacion/recuperacion';
 
 export const IndexPage = () => {
     const [showLogin, setShowLogin] = useState(true);
     const toggleForm = () => {
         setShowRegister(false)
-        setShowRecuperacion(false)
+
         setTimeout(() => {
             setShowLogin(!showLogin);
         }, 500);
     };
     const [showRegister, setShowRegister] = useState(false);
-    const [showRecuperacion, setShowRecuperacion] = useState(false);
 
     return (
         <div className='Index-Page'>
@@ -35,7 +33,6 @@ export const IndexPage = () => {
                         <Login
                             setShowLogin={setShowLogin}
                             setShowRegister={setShowRegister}
-                            setShowRecuperacion={setShowRecuperacion}
                         />
                     )}
                 </div>
@@ -44,14 +41,6 @@ export const IndexPage = () => {
                         <Registro
                             setShowLogin={setShowLogin}
                             setShowRegister={setShowRegister}
-                        />
-                    )}
-                </div>
-                <div className={`recuperacionindex ${showRecuperacion ? 'show' : ''}`}>
-                    {showRecuperacion && (
-                        <Recuperacion
-                            setShowLogin={setShowLogin}
-                            setShowRecuperacion={setShowRecuperacion}
                         />
                     )}
                 </div>

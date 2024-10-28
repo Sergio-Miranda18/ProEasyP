@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { MenuAdmin } from '../../componentes/Menu';
 import './GestionarR.css';
-import axios from 'axios';
 
 export const GestionarServicios = () => {
-    const [data, setData] = useState([]);
-    const [categoria, setCategoria] = useState([]);
-
-    const fechLugares = async () => {
-        const response = await axios.get('/api/local/get')
-        console.log(response)
-        setData(response.data)
-
-    }
-    const fechCategoria = async () => {
-        const response = await axios.get('/api/categoria/get')
-        console.log(response)
-        setCategoria(response.data)
-
-    }
-    useEffect(() => {
-        fechLugares()
-        fechCategoria()
-    }, [])
+    const [data, setData] = useState([
+        { codigo: '001', lugar: 'Cancha 1', ubicacion: 'Centro', descripcion: 'Cancha de fútbol', precio: 50000, servicios: 'Fútbol' },
+        { codigo: '002', lugar: 'Salón 2', ubicacion: 'Sur', descripcion: 'Salón de conferencias', precio: 25000, servicios: 'Conferencias' }
+    ]);
 
     const [showModal, setShowModal] = useState(false);
     const [newService, setNewService] = useState({
@@ -41,20 +25,11 @@ export const GestionarServicios = () => {
         setNewService({ ...newService, [name]: value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const response = await axios.post('/api/local/save',
-            {
-                nombre: newService.lugar,
-                ubicacion: newService.ubicacion,
-                descripcion: newService.descripcion,
-                precio: newService.precio,
-                categoria: { id: newService.servicios },
-            }
-
-        )
+        setData([...data, newService]);
         setShowModal(false); // Cerrar el modal después de agregar el nuevo servicio
-        fechLugares()
+        setNewService({ codigo: '', lugar: '', ubicacion: '', descripcion: '', precio: '', servicios: '' }); // Limpiar formulario
     };
 
     const handleEdit = (codigo) => {
@@ -69,7 +44,7 @@ export const GestionarServicios = () => {
             </div>
             <div className="gestion-contenido">
                 <div className="mensaje-exito">
-
+                    
                 </div>
                 <button className="btn-agregar" onClick={toggleModal}>Agregar nuevo lugar</button>
                 <table className="tabla-servicios">
@@ -86,13 +61,13 @@ export const GestionarServicios = () => {
                     </thead>
                     <tbody>
                         {data.map((item) => (
-                            <tr key={item.idLocal}>
-                                <td>{item.idLocal}</td>
-                                <td>{item.nombre}</td>
+                            <tr key={item.codigo}>
+                                <td>{item.codigo}</td>
+                                <td>{item.lugar}</td>
                                 <td>{item.ubicacion}</td>
                                 <td>{item.descripcion}</td>
                                 <td>{item.precio.toLocaleString('es-ES')}</td>
-                                <td>{item.categoria.descripcion}</td>
+                                <td>{item.servicios}</td>
                                 <td>
                                     <button className="btn-editar" onClick={() => handleEdit(item.codigo)}>✏️</button>
                                     <button className="btn-eliminar">🗑️</button>
@@ -113,63 +88,65 @@ export const GestionarServicios = () => {
                         <div className="modal-content">
                             <h2>Agregar nuevo lugar</h2>
                             <form onSubmit={handleSubmit}>
-
+                                <div className="input-group">
+                                    <label>Código</label>
+                                    <input 
+                                        type="text" 
+                                        name="codigo" 
+                                        value={newService.codigo} 
+                                        onChange={handleChange} 
+                                        required 
+                                    />
+                                </div>
                                 <div className="input-group">
                                     <label>Lugar</label>
-                                    <input
-                                        type="text"
-                                        name="lugar"
-                                        value={newService.lugar}
-                                        onChange={handleChange}
-                                        required
+                                    <input 
+                                        type="text" 
+                                        name="lugar" 
+                                        value={newService.lugar} 
+                                        onChange={handleChange} 
+                                        required 
                                     />
                                 </div>
                                 <div className="input-group">
                                     <label>Ubicación</label>
-                                    <input
-                                        type="text"
-                                        name="ubicacion"
-                                        value={newService.ubicacion}
-                                        onChange={handleChange}
-                                        required
+                                    <input 
+                                        type="text" 
+                                        name="ubicacion" 
+                                        value={newService.ubicacion} 
+                                        onChange={handleChange} 
+                                        required 
                                     />
                                 </div>
                                 <div className="input-group">
                                     <label>Descripción</label>
-                                    <input
-                                        type="text"
-                                        name="descripcion"
-                                        value={newService.descripcion}
-                                        onChange={handleChange}
-                                        required
+                                    <input 
+                                        type="text" 
+                                        name="descripcion" 
+                                        value={newService.descripcion} 
+                                        onChange={handleChange} 
+                                        required 
                                     />
                                 </div>
                                 <div className="input-group">
                                     <label>Precio</label>
-                                    <input
-                                        type="number"
-                                        name="precio"
-                                        value={newService.precio}
-                                        onChange={handleChange}
-                                        required
+                                    <input 
+                                        type="number" 
+                                        name="precio" 
+                                        value={newService.precio} 
+                                        onChange={handleChange} 
+                                        required 
                                     />
                                 </div>
                                 <div className="input-group">
                                     <label>Servicios</label>
-
-                                    <select
-                                        id="servicios"
-                                        name="servicios"
-                                        value={newService.servicios}
-                                        onChange={handleChange} required
-                                    >
-                                        <option key="" value="">Seleccione Tipo de Identificación</option>
-                                        {categoria.map((type) => (
-                                            <option key={type.id} value={type.id}>
-                                                {type.descripcion}
-                                            </option>
-                                        ))}
-                                    </select>
+                                    <input 
+                                        type="text" 
+                                        name="servicios" 
+                                        value={newService.servicios} 
+                                        onChange={handleChange} 
+                                        required 
+                                    />
                                 </div>
                                 <div className="modal-buttons">
                                     <button type="submit" className="btnprimary-1">Guardar</button>
