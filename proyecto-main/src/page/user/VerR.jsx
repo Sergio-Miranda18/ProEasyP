@@ -14,6 +14,7 @@ export const VerReservas = () => {
                 const userId = 1; // Suponiendo que tienes el ID del usuario cliente
                 const response = await axios.get(`http://localhost:8080/api/reserva/get`);
                 setReservas(response.data);
+                console.log ("response");
             } catch (error) {
                 console.error('Error al cargar reservas: ', error);
             } finally {

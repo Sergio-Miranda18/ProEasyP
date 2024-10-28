@@ -51,7 +51,7 @@
 }
 
 .form-buttons button {
-    padding: 8px 15px;
+    padding: 8px 145px;
     border: none;
     border-radius: 5px;
     background-color: #fff;
@@ -79,8 +79,19 @@
 }
 
 .back-button a:hover {
-    color: #bbb; 
+    color: #dab80b; 
 }
+.custom-toast {
+    background-color: #dab80b; /* Color de fondo */
+    color: #ffffff;           /* Color del texto */
+    border-radius: 10px;       /* Borde redondeado */
+  }
+  
+  .custom-toast-header {
+    background-color: #0b0b03; /* Color del encabezado */
+    color: #ffffff;            /* Color del texto en el encabezado */
+  }
+  
 
 /* Responsiveness */
 @media (max-width: 768px) {
