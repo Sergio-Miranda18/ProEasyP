@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { MenuAdmin } from '../../componentes/Menu';
 import './GestionarR.css';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 export const GestionarServicios = () => {
     const [data, setData] = useState([]);
@@ -108,9 +111,14 @@ export const GestionarServicios = () => {
                                 <td>{item.precio.toLocaleString('es-ES')}</td>
                                 <td>{item.categoria.descripcion}</td>
                                 <td>
-                                    <button className="btn-editar" onClick={() => handleEdit(item.codigo)}>✏️</button>
-                                    <button className="btn-eliminar">🗑️</button>
-                                </td>
+                           <button className="btn-editar" onClick={() => handleEdit(item)}>
+                           <FontAwesomeIcon icon={faEdit} /> {/* Icono de edición */}
+                           </button>
+                           <button className="btn-eliminar" onClick={() => handleDelete(item.codigo)}>
+                           <FontAwesomeIcon icon={faTrashAlt} /> {/* Icono de eliminación */}
+                           </button>
+                           </td>
+
                             </tr>
                         ))}
                     </tbody>
