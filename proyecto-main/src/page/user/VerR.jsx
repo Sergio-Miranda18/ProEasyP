@@ -11,10 +11,18 @@ export const VerReservas = () => {
     useEffect(() => {
         const fetchReservas = async () => {
             try {
-                const userId = 1; // Suponiendo que tienes el ID del usuario cliente
+                
                 const response = await axios.get(`http://localhost:8080/api/reserva/get`);
-                setReservas(response.data);
-                console.log ("response");
+                
+                console.log (response);
+                const email=localStorage.getItem('email')
+                if(email){
+                    const filtered =response.data.filter(item => item.email.email && item.email.username === email); 
+                     setReservas(filtered);
+                }
+                else{
+                    setReservas([])
+                }
             } catch (error) {
                 console.error('Error al cargar reservas: ', error);
             } finally {
