@@ -1,0 +1,165 @@
+/* Estilos para la página de reserva */
+.reserva-page {
+  background: url("/images/side-view-huge-decorated-served-table.jpg") no-repeat
+    center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container-form {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.container-form h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 0.9em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form-buttons button,
+.reserva-button {
+  padding: 8px 145px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #090f1d;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.form-buttons button:hover {
+  background-color: #090f1d;
+  color: #fff;
+}
+
+.reserva-button {
+  background-color: #fff;
+  color: #090f1d;
+  height: 40px;
+}
+
+.reserva-button:hover {
+    background-color: #cfcccc;
+    color: #090f1d;
+  }
+
+.back-button {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.back-button a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+  width: 100%;
+  display: block;
+  height: 40px;
+}
+
+.back-button a:hover {
+  color: #dab80b;
+}
+.custom-toast {
+  background-color: #dab80b; /* Color de fondo */
+  color: #ffffff; /* Color del texto */
+  border-radius: 10px; /* Borde redondeado */
+}
+
+.custom-toast-header {
+  background-color: #0b0b03; /* Color del encabezado */
+  color: #ffffff; /* Color del texto en el encabezado */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .container-form {
+    max-width: 90%; /* Ajusta el ancho al 90% para tabletas */
+    padding: 15px; /* Reduce padding para ajustarse a pantallas medianas */
+  }
+
+  .container-form h2 {
+    font-size: 1.8em; /* Reduce tamaño del título en tabletas */
+  }
+
+  .form-buttons {
+    flex-direction: column; /* Botones uno debajo del otro en pantallas medianas */
+  }
+
+  .form-buttons button {
+    width: 100%; /* Botones ocupan todo el ancho */
+    margin-bottom: 10px; /* Añade espacio entre botones */
+  }
+}
+
+@media (max-width: 480px) {
+  .container-form {
+    max-width: 100%; /* El formulario ocupa todo el ancho en móviles */
+    padding: 10px; /* Menor padding en pantallas pequeñas */
+  }
+
+  .container-form h2 {
+    font-size: 1.5em; /* Reduce aún más el tamaño del título en móviles */
+  }
+
+  .form-group label {
+    font-size: 1em; /* Ajusta el tamaño de las etiquetas en móviles */
+  }
+
+  .form-group select,
+  .form-group input {
+    font-size: 0.8em; /* Tamaño de texto más pequeño en móviles */
+    padding: 6px; /* Reduce padding en los inputs */
+  }
+
+  .form-buttons {
+    flex-direction: column; /* Botones apilados en móviles */
+  }
+
+  .form-buttons button {
+    width: 100%; /* Botones ocupan todo el ancho */
+    margin-bottom: 10px; /* Añade espacio entre botones */
+  }
+
+  .back-button a {
+    font-size: 0.9em; /* Reduce tamaño del texto del botón de regresar */
+  }
+}

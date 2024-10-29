@@ -3,6 +3,7 @@ import './login.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { API_BASE_URL } from '../../environment';
 
 export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) => {
   const [email, setEmail] = useState('');
@@ -30,7 +31,7 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/authenticate', { user: email, password });
+      const response = await axios.post(`${API_BASE_URL}/auth/authenticate`, { user: email, password });
       if (response.status === 200) {
         const { token, authorities } = response.data;
         localStorage.setItem('token', token);

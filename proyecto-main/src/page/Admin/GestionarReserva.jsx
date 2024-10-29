@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MenuAdmin } from '../../componentes/Menu';
 import axios from 'axios';
 import './Gestionar.css';
 import DataTable from 'react-data-table-component';
+import { API_BASE_URL } from '../../environment';
 
 export const GestionarReserva = () => {
     const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ export const GestionarReserva = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/reserva/get');
+            const response = await axios.get(`${API_BASE_URL}/reserva/get`);
             setData(response.data);
             console.log(response.data);
         } catch (error) {
@@ -26,7 +27,7 @@ export const GestionarReserva = () => {
 
     const updateStatus = async (id, newStatus) => {
         try {
-            const response = await axios.put(`http://localhost:8080/api/reserva/update/${id}`, { estado: newStatus });
+            const response = await axios.put(`${API_BASE_URL}/reserva/update/${id}`, { estado: newStatus });
             console.log('Response:', response.data);
 
             const updatedData = data.map(item =>

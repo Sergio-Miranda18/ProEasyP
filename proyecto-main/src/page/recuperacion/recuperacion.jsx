@@ -4,6 +4,7 @@ import './recuperacion.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser, faXmark, faIdCard, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { API_BASE_URL } from '../../environment';
 
 export const Recuperacion = ({ setShowLogin, setShowRecuperacion }) => {
     const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ export const Recuperacion = ({ setShowLogin, setShowRecuperacion }) => {
     useEffect(() => {
         document.title = "Recuperacion";
         const verUsuario = async () => {
-            const response = await axios.get('http://localhost:8080/api/usuario/get');
+            const response = await axios.get(`${API_BASE_URL}/usuario/get`);
             console.log(response.data);
         };
 
@@ -47,7 +48,7 @@ export const Recuperacion = ({ setShowLogin, setShowRecuperacion }) => {
         try {
             console.log('Datos del formulario a enviar:', formData);
             
-                const requestData = await axios.post('http://localhost:8080/api/auth/register', {
+                const requestData = await axios.post(`${API_BASE_URL}/auth/register`, {
                     email: formData.email,
                     
                 });

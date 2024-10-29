@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate para navegación
 import './VerR.css';
+import { API_BASE_URL } from '../../environment';
 
 export const VerReservas = () => {
     const [reservas, setReservas] = useState([]);
@@ -12,7 +13,7 @@ export const VerReservas = () => {
         const fetchReservas = async () => {
             try {
                 const userId = 1; // Suponiendo que tienes el ID del usuario cliente
-                const response = await axios.get(`http://localhost:8080/api/reserva/get`);
+                const response = await axios.get(`${API_BASE_URL}/reserva/get`);
                 setReservas(response.data);
                 console.log ("response");
             } catch (error) {
