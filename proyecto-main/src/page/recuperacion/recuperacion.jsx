@@ -68,7 +68,7 @@ export const Recuperacion = ({ setShowLogin, setShowRecuperacion }) => {
                     <FontAwesomeIcon icon={faXmark} />
                 </span>
                 <div className="contenedor-form-recuperacion">
-                    <h2>Olvidaste tu contraseña</h2>
+                    <h2>¿Olvidaste tu contraseña?</h2>
                     <form onSubmit={onLogin}>
                         <div className="contenedor-input">
                             <span className="icono">

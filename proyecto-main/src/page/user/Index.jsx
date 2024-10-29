@@ -9,7 +9,7 @@ export const Index = () => {
                     <ul className="header-links">
                         
                             <a href="/Reserva">Reservas</a>
-                            <a href="/">Lugares</a>
+                            <a href="/Lugares">Lugares</a>
                             <a href="VerR">Ver reservas</a>
                             <a href="/">Salir</a>
                         

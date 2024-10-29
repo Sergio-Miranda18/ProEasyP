@@ -10,6 +10,8 @@ import { GestionarServicios } from '../page/Admin/GestionarServicios';
 import { ProtectedRoute } from './ProtectedRoute';
 import { IndexPage } from '../page/indexPage';
 import { VerReservas } from '../page/user/VerR';
+import { Lugares } from '../page/user/Lugares';
+
 
 export const AppRouter = () => {
   return (
@@ -31,6 +33,9 @@ export const AppRouter = () => {
             } />
               <Route path="/VerR" element={
               <ProtectedRoute allowedRoles={['USER']} element={<VerReservas />} />
+            } />
+           <Route path="/Lugares" element={
+              <ProtectedRoute allowedRoles={['USER']} element={<Lugares />} />
             } />
 
             {"ADMINISTRADOR"}
