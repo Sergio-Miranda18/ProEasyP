@@ -1,17 +1,20 @@
 .btnprimary, .btnprimary1 {
     border: none;
     color: white;
-    padding: 10px 15px; 
+    padding: 8px 12px; /* Tamaño más pequeño y cuadrado */
     cursor: pointer;
-    border-radius: 20px; 
-    font-size: 14px; 
-    font-weight: bold; 
-    text-transform: uppercase; 
-    letter-spacing: 0.5px; 
-    position: relative; 
-    overflow: hidden; 
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+    border-radius: 5px; /* Bordes más rectos */
+    font-size: 8px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Menos espaciado entre letras */
+    margin: 5px; /* Espacio alrededor del botón */
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
 
 .btnprimary::before, .btnprimary1::before {
     content: '';
@@ -20,7 +23,7 @@
     left: 50%;
     width: 0;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1); /* Luz sutil */
+    background: rgba(0, 0, 0, 0.1); /* Luz sutil */
     transition: width 0.4s ease, left 0.4s ease; 
     z-index: 0; 
 }
@@ -40,7 +43,7 @@
 }
 
 .btnprimary:hover {
-    background: #34495e; /* Un gris más claro en hover */
+    background: #141c25; /* Un gris más claro en hover */
 }
 
 .btnprimary1 {
@@ -48,5 +51,5 @@
 }
 
 .btnprimary1:hover {
-    background: #34495e; /* El mismo gris claro para consistencia */
+    background: #141c25; /* El mismo gris claro para consistencia */
 }

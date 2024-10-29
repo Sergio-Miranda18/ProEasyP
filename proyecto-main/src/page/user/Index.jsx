@@ -2,9 +2,13 @@ import React from 'react';
 import './styles.css';
 
 export const Index = () => {
+    
+
     return (
         <div>
+            
             <header className="header1">
+                
                 <div className="header1-content container">
                     <ul className="header-links">
                         
@@ -195,10 +199,10 @@ export const Index = () => {
                     <div className="link">
                         <h3>¿QUIÉNES SOMOS?</h3>
                         <ul>
-                        <li><a href="#">INSTAGRAM</a></li>
-                            <li><a href="#">FACEBOOK</a></li>
+                        <li><a href="https://www.instagram.com/easyplanning_reserves/profilecard/?igsh=ZWxoejB0Z241dGZu">INSTAGRAM</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61567854211544&mibextid=ZbWKwL">FACEBOOK</a></li>
                             <li><a href="#">TWITTER</a></li>
-                            <li><a href="#">YOUTUBE</a></li>
+                            <li><a href="https://www.youtube.com/@EASYPLANNINGwmraic">YOUTUBE</a></li>
                         </ul>
                     </div>
                 </div>

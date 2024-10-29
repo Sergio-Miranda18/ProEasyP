@@ -15,6 +15,13 @@ body, html {
     padding: 20px;
     color: white;
 }
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
 
 .btn-back {
     align-self: flex-start;
