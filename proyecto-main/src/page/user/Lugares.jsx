@@ -37,7 +37,7 @@ export const Lugares = () => {
                             <div className="card-body">
                                 <h5 className="card-title">{lugar.nombre}</h5>
                                 <p className="card-text">{lugar.descripcion}</p>
-                                <button className="btn btn-primary">Ver Más</button>
+                                <a href="/Reserva" className="btn btn-primary">¡RESERVA AHORA!</a>
                             </div>
                         </div>
                     </div>

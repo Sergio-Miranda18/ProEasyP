@@ -111,8 +111,8 @@ export const GestionarReserva = () => {
             <div className="header2">
                 <p className='texto'>Gestionar Reservas</p>
             </div>
-            <div style={{ display: 'flex', justifyContent: "right" }}>
-                <input type="text" placeholder='Search...' style={{ padding: '6px 10px' }} />
+            <div >
+
             </div>
             {loading ? (
                 <p>Loading...</p>
