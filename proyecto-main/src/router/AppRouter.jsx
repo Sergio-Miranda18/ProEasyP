@@ -11,12 +11,14 @@ import { ProtectedRoute } from './ProtectedRoute';
 import { IndexPage } from '../page/indexPage';
 import { VerReservas } from '../page/user/VerR';
 import { Lugares } from '../page/user/Lugares';
+import Inicio from '../page/Inicio/Inicio'; 
 
 
 export const AppRouter = () => {
   return (
     <>
       <Routes>
+        
         <Route path="/" element={<Navbar />}>
           <Route index element={<IndexPage/>} />
           <Route path="/Credenciales" element={<IndexPage />} />

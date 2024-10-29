@@ -81,9 +81,7 @@ export const Registro = ({ setShowLogin, setShowRegister }) => {
     return (
         <div className='registro'>
             <div className='datosregistro'>
-                <span className="icono-cerrar" onClick={() => setShowRegister(false)}>
-                    <FontAwesomeIcon icon={faXmark} />
-                </span>
+                
                 <div className="contenedor-form-register">
                     <h2>Registrarse</h2>
                     <form onSubmit={onLogin}>
