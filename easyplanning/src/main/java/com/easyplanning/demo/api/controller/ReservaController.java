@@ -28,7 +28,7 @@ public class ReservaController {
     }
 
     @PutMapping(value = routes.Reserva.UPDATE_RESERVA + "/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ReservaDTO reservaDTO) {
+    public ResponseEntity<?> update(@PathVariable String id, @RequestBody ReservaDTO reservaDTO) {
         Optional<ReservaDTO> reservaDTOOptional = reservaService.findById(id);
         if (reservaDTOOptional.isPresent()) {
             ReservaDTO existingReserva = reservaDTOOptional.get();
