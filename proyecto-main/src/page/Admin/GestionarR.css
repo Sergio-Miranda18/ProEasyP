@@ -8,12 +8,11 @@
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
     max-width: 100%;
 }
 
 /* Encabezado */
-.header-2 {
+.header2 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
@@ -24,12 +23,10 @@
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    
 }
 
-.header2:hover {
-    transform: scale(1.02);
-}
+
 
 @media (max-width: 768px) {
     .header2 {
@@ -55,7 +52,7 @@
     cursor: pointer;
     border: none;
     transition: background 0.3s ease, transform 0.3s ease;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .btn-agregar:hover {

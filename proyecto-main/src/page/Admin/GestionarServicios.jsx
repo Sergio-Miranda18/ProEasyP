@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MenuAdmin } from '../../componentes/Menu';
 import './GestionarR.css';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 export const GestionarServicios = () => {
     const [data, setData] = useState([]);
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
     const [categoria, setCategoria] = useState([]);
+
 
     const fechLugares = async () => {
         const response = await axios.get('/api/local/get')
@@ -35,6 +41,17 @@ export const GestionarServicios = () => {
     });
 
     const toggleModal = () => setShowModal(!showModal);
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            setSelectedFile(file);
+            setErrorMessage(''); // Limpiar el mensaje de error si el archivo es válido
+        } else {
+            setSelectedFile(null);
+            setErrorMessage('Solo se permiten archivos de imagen.');
+        }
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -94,9 +111,14 @@ export const GestionarServicios = () => {
                                 <td>{item.precio.toLocaleString('es-ES')}</td>
                                 <td>{item.categoria.descripcion}</td>
                                 <td>
-                                    <button className="btn-editar" onClick={() => handleEdit(item.codigo)}>✏️</button>
-                                    <button className="btn-eliminar">🗑️</button>
-                                </td>
+                           <button className="btn-editar" onClick={() => handleEdit(item)}>
+                           <FontAwesomeIcon icon={faEdit} /> {/* Icono de edición */}
+                           </button>
+                           <button className="btn-eliminar" onClick={() => handleDelete(item.codigo)}>
+                           <FontAwesomeIcon icon={faTrashAlt} /> {/* Icono de eliminación */}
+                           </button>
+                           </td>
+
                             </tr>
                         ))}
                     </tbody>
@@ -170,6 +192,10 @@ export const GestionarServicios = () => {
                                             </option>
                                         ))}
                                     </select>
+                                </div>
+                                <div className='input-group'>
+                                    <input type="file"  onChange={handleFileChange} />
+                                    {errorMessage && <p className="error-message">{errorMessage}</p>}
                                 </div>
                                 <div className="modal-buttons">
                                     <button type="submit" className="btnprimary-1">Guardar</button>

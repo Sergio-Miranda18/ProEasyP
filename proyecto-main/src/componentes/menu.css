@@ -1,33 +1,22 @@
 .usa {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr auto; /* Cambia a 'auto' para que la última columna se ajuste al contenido */
+  gap: 0px; /* Ajusta el espacio entre columnas si es necesario */
 }
 
 .menu {
   grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: transparent;
 }
-
-
 
 .usuario {
-  grid-area: 1 / 3 / 2 / 4;
+  grid-area: 1 / 3 / 2 / 4; /* Se mantiene en la última columna */
   background-color: transparent;
+  display: flex; /* Añadir flex para alinear contenido si es necesario */
+  justify-content: flex-end; /* Alinea cualquier contenido interno a la derecha */
 }
-
-.menu {
-  display: grid;
-  background-color: transparent;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas: "menu . usuario";
-  z-index: 2;
-}
-
 
 .main-header {
   width: 100%;
@@ -36,29 +25,29 @@
 
 nav {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 300px;
   top: 50px;
+  left: 0;
+  width: 300px;
   height: calc(100vh - 50px);
   background: #dc8718;
   transform: translateX(-100%);
-  transition: .4s ease;
+  transition: transform 0.4s ease;
+  z-index: 50;
 }
 
 .men li {
-  list-style: disc;
+  list-style-type: disc;
   width: 100%;
-  border-bottom: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid #000;
 }
 
 .men a {
   color: var(--main-color);
   display: block;
-  line-height: 3.5;
-  padding: 0 10px;
+  padding: 10px;
   text-decoration: none;
-  transition: .4s ease;
+  line-height: 2.5;
+  transition: transform 0.4s ease;
 }
 
 .men a:hover {
@@ -69,7 +58,7 @@ nav {
   display: none;
 }
 
-#btn-nav:checked~nav {
+#btn-nav:checked ~ nav {
   transform: translateX(0);
 }
 
@@ -81,40 +70,39 @@ nav {
   top: 10px;
   cursor: pointer;
   padding: 7px 15px;
-  transition: .2s ease;
   background: transparent;
+  transition: background 0.2s ease;
 }
 
 .btn-nav:hover {
   background: rgba(0, 0, 0, 0.3);
 }
+
 .user-info {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-
 .profile-picture {
-  background-color: transparent;
-  max-width: 10%;
+  max-width: 40px;
   height: auto;
-  border-radius: 20%;
-  margin-right: 20px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
+
 .user-menu {
   position: relative;
   display: inline-block;
-  background-color: transparent;
   color: #ffffff;
+  background-color: transparent;
   padding: 10px 20px;
   border-radius: 5px;
 }
 
-.menus{
-  z-index: 2;
-  display: grid; 
-  grid-template-rows: 1fr; 
-  gap: 0px 0px; 
+.menus {
+  display: grid;
+  grid-template-rows: 1fr;
   background-color: chocolate;
+  z-index: 2;
 }

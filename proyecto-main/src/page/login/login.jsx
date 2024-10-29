@@ -60,9 +60,7 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
   return (
     <div className='login'>
       <div className='datoslogin'>
-        <span className="icono-cerrar" onClick={() => setShowLogin(false)}>
-          <FontAwesomeIcon icon={faXmark} />
-        </span>
+        
         <div className="contenedor-form-login">
           <h2>Iniciar Sesión</h2>
           <form onSubmit={handleLoginSubmit}>

@@ -1,0 +1,60 @@
+/* Inicio.css */
+.inicio-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #090f1d; /* Fondo oscuro */
+    color: #f1efef; /* Texto claro */
+    background-image: url('/public/images/side-view-huge-decorated-served-table.jpg'); /* Ajusta a la imagen de fondo que tienes */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .inicio-content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); /* Capa semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+  }
+  
+  .inicio-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #f1efef;
+  }
+  
+  .inicio-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #f1efef;
+  }
+  
+  .inicio-button {
+    background-color: #f1efef; /* Color claro para contrastar */
+    color: #090f1d;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .inicio-button:hover {
+    background-color: #cfcfcf;
+  }
+  .inicio-description {
+    font-family: 'Georgia', serif; /* Elegante fuente serif */
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    color: #fefefe; /* Color de texto oscuro para elegancia */
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin: 20px 0; /* Espaciado superior e inferior */
+    text-align: center; /* Centrar el texto */
+    max-width: 600px; /* Ancho máximo para mantener la legibilidad */
+    margin-left: auto; /* Centrar horizontalmente */
+    margin-right: auto; /* Centrar horizontalmente */
+  }
+  
+  

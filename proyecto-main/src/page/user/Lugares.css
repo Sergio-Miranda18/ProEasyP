@@ -15,6 +15,13 @@ body, html {
     padding: 20px;
     color: white;
 }
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
 
 .btn-back {
     align-self: flex-start;
@@ -67,4 +74,11 @@ body, html {
 
 .btn-primary:hover {
     background-color: #0056b3;
+}
+.lugares-container {
+    padding: 20px; /* Espaciado alrededor del contenedor */
+}
+
+.btn-back {
+    margin-bottom: 20px; /* Espaciado debajo del botón "Atrás" */
 }
