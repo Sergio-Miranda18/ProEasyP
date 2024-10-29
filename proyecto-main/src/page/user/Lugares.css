@@ -11,10 +11,11 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Cambiado a flex-start para evitar centrar verticalmente */
     padding: 20px;
     color: white;
 }
+
 h2 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -26,8 +27,8 @@ h2 {
 .btn-back {
     align-self: flex-start;
     margin: 20px;
-    padding: 10px 20px;
-    background-color: #0b7dda;
+    padding: 10px 20px; /* Aumentado el padding horizontal */
+    background-color: #0f1e2b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -40,12 +41,17 @@ h2 {
     background-color: #095ea3;
 }
 
+.row {
+    width: 100%; /* Asegurarse de que la fila ocupe el 100% del contenedor */
+}
+
 .card {
     border: none;
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
     background: rgba(255, 255, 255, 0.9);
+    min-height: 350px; /* Ajuste de altura mínima */
 }
 
 .card:hover {
@@ -67,7 +73,7 @@ h2 {
 }
 
 .btn-primary {
-    background-color: #007bff;
+    background-color: #0f1e2b;
     border: none;
     transition: background-color 0.3s ease;
 }
@@ -75,10 +81,15 @@ h2 {
 .btn-primary:hover {
     background-color: #0056b3;
 }
-.lugares-container {
-    padding: 20px; /* Espaciado alrededor del contenedor */
+
+.search-bar {
+    margin-bottom: 20px; /* Espacio debajo de la barra de búsqueda */
 }
 
-.btn-back {
-    margin-bottom: 20px; /* Espaciado debajo del botón "Atrás" */
+input[type="text"] {
+    width: 100%; /* Ancho completo para la barra de búsqueda */
+    padding: 10px; /* Espaciado interno */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para un efecto de profundidad */
 }

@@ -32,8 +32,8 @@
   }
   
   .inicio-button {
-    background-color: #f1efef; /* Color claro para contrastar */
-    color: #090f1d;
+    background-color: #000000; /* Color claro para contrastar */
+    color: #e6e7e9;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -43,7 +43,7 @@
   }
   
   .inicio-button:hover {
-    background-color: #cfcfcf;
+    background-color:  #272626;
   }
   .inicio-description {
     font-family: 'Georgia', serif; /* Elegante fuente serif */

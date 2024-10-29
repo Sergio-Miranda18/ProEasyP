@@ -56,6 +56,7 @@ export const Lugares = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">{lugar.nombre}</h5>
                                     <p className="card-text">{lugar.descripcion}</p>
+                                    <p className="card-text">{lugar.ubicacion}</p>
                                     <a href="/Reserva" className="btn btn-primary">¡RESERVA AHORA!</a>
                                 </div>
                             </div>
