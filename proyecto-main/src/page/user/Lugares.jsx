@@ -11,7 +11,8 @@ export const Lugares = () => {
     useEffect(() => {
         const fetchLugares = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/local/get');
+                const response = await axios.get('/api/local/get');
+                console.log(response)
                 setLugares(response.data);
             } catch (error) {
                 console.error('Error al obtener los lugares de la base de datos', error);
@@ -29,7 +30,7 @@ export const Lugares = () => {
                     <div key={lugar.idLocal} className="col-md-4 mb-4">
                         <div className="card h-100 shadow-sm">
                             <img
-                                src={`URL_DE_IMAGENES/${lugar.imagen}`}
+                                src={`data:image/jpeg;base64,${lugar.img}`}
                                 className="card-img-top"
                                 alt={lugar.nombre}
                             />

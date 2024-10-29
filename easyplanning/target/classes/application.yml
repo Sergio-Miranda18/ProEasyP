@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/epa
     username: root
-    password: 1234
+    password: Osoted12.
   jpa:
     hibernate:
       ddl-auto: update

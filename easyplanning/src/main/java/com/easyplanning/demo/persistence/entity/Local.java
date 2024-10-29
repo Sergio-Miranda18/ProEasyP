@@ -36,4 +36,8 @@ public class Local {
     @ManyToOne
     private Categoria categoria;
 
+    @Lob
+    @Column(name = "Imagen", columnDefinition = "LONGBLOB")
+    private byte[] img;
+
 }
