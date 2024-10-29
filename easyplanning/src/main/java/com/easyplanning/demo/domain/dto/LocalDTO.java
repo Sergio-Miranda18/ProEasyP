@@ -17,5 +17,6 @@ public class LocalDTO {
     private double precio;
     private Categoria categoria;
     private String descripcion;
+    private byte[] img;
 
 }

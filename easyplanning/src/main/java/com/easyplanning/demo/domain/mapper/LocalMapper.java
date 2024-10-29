@@ -13,6 +13,7 @@ public class LocalMapper {
         local.setPrecio(localDTO.getPrecio());
         local.setUbicacion(localDTO.getUbicacion());
         local.setDescripcion(localDTO.getDescripcion());
+        local.setImg(localDTO.getImg());
         return local;
     }
 
@@ -24,6 +25,9 @@ public class LocalMapper {
         localDTO.setPrecio(local.getPrecio());
         localDTO.setUbicacion(local.getUbicacion());
         localDTO.setDescripcion(local.getDescripcion());
+        localDTO.setImg(local.getImg());
+
+
         return localDTO;
     }
 
