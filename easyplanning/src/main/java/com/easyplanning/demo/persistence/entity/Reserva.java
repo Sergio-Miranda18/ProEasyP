@@ -19,8 +19,7 @@ public class Reserva {
 
     @Column(name = "ID")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @JoinColumn(name = "Id_Local")
     @ManyToOne

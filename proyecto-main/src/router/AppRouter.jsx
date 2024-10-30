@@ -5,13 +5,14 @@ import { GestionarReserva } from '../page/Admin/GestionarReserva';
 import { Index } from '../page/user/Index';
 import { Registro } from '../page/register/registro';
 import { PageNotFound } from '../componentes/PageNotFound';
-import { Reserva } from '../page/user/Reserva';
+import { Reserva } from '../page/user/Reserva/Reserva';
 import { GestionarServicios } from '../page/Admin/GestionarServicios';
 import { ProtectedRoute } from './ProtectedRoute';
 import { IndexPage } from '../page/indexPage';
 import { VerReservas } from '../page/user/VerR';
 import { Lugares } from '../page/user/Lugares';
 import Inicio from '../page/Inicio/Inicio'; 
+import Confirmacion from '../componentes/Confirmacion/Confirmacion';
 
 export const AppRouter = () => {
   return (
@@ -35,6 +36,9 @@ export const AppRouter = () => {
           } />
           <Route path="/Lugares" element={
             <ProtectedRoute allowedRoles={['USER']} element={<Lugares />} />
+          } />
+          <Route path="/confirmacion" element={
+                  <ProtectedRoute allowedRoles={['USER']} element={<Confirmacion />} />
           } />
 
           {"ADMINISTRADOR"}

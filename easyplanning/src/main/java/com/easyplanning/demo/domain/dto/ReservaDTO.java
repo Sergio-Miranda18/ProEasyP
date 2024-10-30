@@ -18,7 +18,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReservaDTO {
-    private Long id;
+    private String id;
 
     private Local local;
     private Usuario email;

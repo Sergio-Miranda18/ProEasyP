@@ -1,0 +1,58 @@
+.confirmacion-container {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin: 50px auto;
+  max-width: 600px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.confirmacion-titulo {
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.confirmacion-mensaje {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.resumen-pedido {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.resumen-pedido h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.resumen-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.resumen-item {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.boton-volver {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.boton-volver:hover {
+  background-color: #45a049;
+}

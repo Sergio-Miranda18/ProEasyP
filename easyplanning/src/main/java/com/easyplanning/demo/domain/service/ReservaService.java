@@ -26,7 +26,7 @@ public class ReservaService {
         return reservaRepository.findAll().stream().map(ReservaMapper::toDTO).collect(Collectors.toList());
     }
 
-    public Optional<ReservaDTO> findById(Long id) {
+    public Optional<ReservaDTO> findById(String id) {
         return reservaRepository.findById(id).map(ReservaMapper::toDTO);
     }
 }

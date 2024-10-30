@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate para navegación
 import './VerR.css';
+import { API_BASE_URL } from '../../environment';
 
 export const VerReservas = () => {
     const [reservas, setReservas] = useState([]);
@@ -12,9 +13,7 @@ export const VerReservas = () => {
         const fetchReservas = async () => {
             try {
                 
-                const response = await axios.get(`http://localhost:8080/api/reserva/get`);
-                
-                console.log (response);
+                const response = await axios.get(`${API_BASE_URL}/reserva/get`);
                 const email=localStorage.getItem('email')
                 if(email){
                     const filtered =response.data.filter(item => item.email.email && item.email.username === email); 

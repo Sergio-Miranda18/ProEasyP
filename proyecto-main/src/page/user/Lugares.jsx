@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Lugares.css';
+import { API_BASE_URL } from '../../environment';
 
 export const Lugares = () => {
     const [lugares, setLugares] = useState([]);
@@ -12,8 +13,7 @@ export const Lugares = () => {
     useEffect(() => {
         const fetchLugares = async () => {
             try {
-                const response = await axios.get('/api/local/get');
-                console.log(response);
+                const response = await axios.get(`${API_BASE_URL}/local/get`);
                 setLugares(response.data);
             } catch (error) {
                 console.error('Error al obtener los lugares de la base de datos', error);
