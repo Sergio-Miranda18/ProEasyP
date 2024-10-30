@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Reserva.css";
-import { PAYU } from "../../../environment";
+import { PAYMENT_URL, PAYU } from "../../../environment";
 import { useReserva } from "./useReserva";
 
 export const Reserva = () => {
@@ -20,7 +20,7 @@ export const Reserva = () => {
         <h2>¡¡RESERVA TUS EVENTOS!!</h2>
         <form
           method="post"
-          action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/"
+          action={PAYMENT_URL}
         >
           <input name="merchantId" type="hidden" value={PAYU.MERCHANT_ID} />
           <input name="accountId" type="hidden" value={PAYU.ACCOUNT_ID} />
