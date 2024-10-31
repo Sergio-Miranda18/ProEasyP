@@ -3,11 +3,16 @@ package com.easyplanning.demo.api.controller;
 import com.easyplanning.demo.domain.common.routes;
 import com.easyplanning.demo.domain.dto.LocalDTO;
 import com.easyplanning.demo.domain.service.LocalService;
+import com.easyplanning.demo.persistence.entity.Categoria;
+import com.easyplanning.demo.persistence.repository.CategoriaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,10 +23,45 @@ import java.util.Optional;
 public class LocalController {
 @Autowired
     private LocalService localService;
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+    @PostMapping(value = routes.Local.SAVE_LOCAL, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public ResponseEntity<String> save(
+            @RequestPart("img") MultipartFile file,
+            @RequestParam("nombre") String nombre,
+            @RequestParam("ubicacion") String ubicacion,
+            @RequestParam("descripcion") String descripcion,
+            @RequestParam("precio") double precio,
+            @RequestParam("categoriaId") Long categoriaId
+    ) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body("Debe seleccionar un archivo.");
+        }
+        try {
+            // Crear y configurar LocalDTO con los parámetros recibidos
+            LocalDTO localDTO = new LocalDTO();
+            localDTO.setNombre(nombre);
+            localDTO.setUbicacion(ubicacion);
+            localDTO.setDescripcion(descripcion);
+            localDTO.setPrecio(precio);
+            // Buscar la categoría por su ID
+            Optional<Categoria> categoriaOpt = categoriaRepository.findById(categoriaId);
+            if (categoriaOpt.isPresent()) {
+                localDTO.setCategoria(categoriaOpt.get());
+            } else {
+                return ResponseEntity.badRequest().body("Categoría no encontrada.");
+            }
+            if (!file.isEmpty()) {
+                localDTO.setImg(file.getBytes());  // Guardar imagen como byte[]
+            }
 
-    @PostMapping(value = routes.Local.SAVE_LOCAL)
-    public LocalDTO save(@RequestBody LocalDTO localDTO){
-        return localService.save(localDTO);
+            localService.save(localDTO);
+
+            return ResponseEntity.ok("Local guardado correctamente.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error al procesar la imagen.");
+        }
     }
 
     @GetMapping(value = routes.Local.GET_LOCAL)

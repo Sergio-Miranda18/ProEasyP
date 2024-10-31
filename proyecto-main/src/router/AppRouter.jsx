@@ -20,6 +20,7 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/Inicio" />} />
         <Route path="/Inicio" element={<Inicio />} />
+
         <Route path="/Credenciales" element={<IndexPage />} />
         <Route path="*" element={<PageNotFound />} />
         

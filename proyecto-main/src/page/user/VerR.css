@@ -79,6 +79,13 @@
     background-color: #c2692a;
     transform: translateY(-2px);
 }
+.no-reservas {
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
 
 
 

@@ -24,8 +24,7 @@ export const IndexPage = () => {
     <ul className="navegacion">
         <a href="/">Inicio</a>
         <a href="/informacion">Información</a>
-        <a href="/contactanos">Contáctenos</a>
-        <button className="btnInciarSesion" onClick={toggleForm}>Iniciar Sesión</button>
+        <a href="/Contactenos">Contáctenos</a>
        </ul>
       </div>
 

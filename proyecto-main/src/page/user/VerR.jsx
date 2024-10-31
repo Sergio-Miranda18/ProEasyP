@@ -56,8 +56,7 @@ export const VerReservas = () => {
                             </div>
                         ))
                     ) : (
-                        <p>No tienes reservas disponibles.</p>
-                    )
+                           <p className="no-reservas">No tienes reservas disponibles.</p>                    )
                 )}
             </div>
             <div className="btn-atras-container">

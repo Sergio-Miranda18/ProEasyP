@@ -93,8 +93,9 @@
 }
 
 .navegacion .btnInciarSesion:hover {
-    background: #fff;
+    background: #ff9505;
     color: #090f1d;
+    
 }
 
 .index-login {

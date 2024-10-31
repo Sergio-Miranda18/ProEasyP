@@ -186,23 +186,14 @@ export const Index = () => {
                         </ul>
                     </div>
 
-                    <div className="link">
-                        <h3>QUEJAS Y RECLAMOS</h3>
-                        <ul>
-                        <li><a href="#">Lorem</a></li>
-                            <li><a href="#">Lorem</a></li>
-                            <li><a href="#">Lorem</a></li>
-                            <li><a href="#">Lorem</a></li>
-                            
-                        </ul>
-                    </div>
+                    
                     <div className="link">
                         <h3>¿QUIÉNES SOMOS?</h3>
                         <ul>
                         <li><a href="https://www.instagram.com/easyplanning_reserves/profilecard/?igsh=ZWxoejB0Z241dGZu">INSTAGRAM</a></li>
                             <li><a href="https://www.facebook.com/profile.php?id=61567854211544&mibextid=ZbWKwL">FACEBOOK</a></li>
-                            <li><a href="#">TWITTER</a></li>
-                            <li><a href="https://www.youtube.com/@EASYPLANNINGwmraic">YOUTUBE</a></li>
+                            <li><a href="https://x.com/EASYPLANNINGg">TWITTER</a></li>
+                            <li><a href="https://www.youtube.com/@EASYPLANNINGwmraic/videos">YOUTUBE</a></li>
                         </ul>
                     </div>
                 </div>
