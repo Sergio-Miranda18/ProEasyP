@@ -157,3 +157,88 @@
 .contact-button:hover {
   background-color: #333;
 }
+/* Sección de Lugares Disponibles */
+.lugares-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para destacar la sección */
+  color: #f1efef;
+  border-radius: 10px;
+  margin-top: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.lugares-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Sección de Lugares Disponibles */
+.lugares-section {
+  padding: 60px 20px;
+  text-align: center;
+  color: #f1efef;
+  border-radius: 10px;
+  margin-top: 20px;
+  max-width: 1200px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+}
+
+.lugares-container {
+  display: flex;
+  justify-content: space-between; /* Asegura que las cartas estén una al lado de la otra */
+  flex-wrap: wrap; /* Permite que se ajusten en diferentes filas si es necesario */
+  gap: 20px;
+}
+
+/* Estilo de cada lugar */
+.lugar-item {
+  flex: 1; /* Permite que las cartas se expandan equitativamente */
+  min-width: 200px; /* Ancho mínimo para cada carta */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lugar-item:hover {
+  transform: scale(1.05); /* Efecto de ampliación */
+  box-shadow: 0px 0px 15px rgba(255, 153, 51, 0.7);
+}
+
+.lugar-item h3 {
+  font-size: 1.5rem;
+  color: #ff9505; /* Color del título de los lugares */
+  margin-bottom: 10px;
+}
+
+.lugar-item p {
+  font-size: 1rem;
+  color: #ffffff; /* Texto blanco para la descripción */
+}
+
+/* Botón de reserva en los lugares */
+.lugar-item .btn {
+  padding: 10px 20px;
+  background-color: #ff9505;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.lugar-item .btn:hover {
+  background-color: #ffa700; /* Cambia de color al pasar el mouse */
+}
+.logo {
+  max-width: 150px; /* Ajusta el tamaño del logo */
+  margin-bottom: 20px; /* Espaciado debajo del logo */
+}
