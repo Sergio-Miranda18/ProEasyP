@@ -19,16 +19,15 @@ export const GestionarServicios = () => {
         precio: '',
         servicios: ''
     });
+    const [isEditMode, setIsEditMode] = useState(false);
 
     const fechLugares = async () => {
         const response = await axios.get('/api/local/get');
-        console.log(response);
         setData(response.data);
     };
 
     const fechCategoria = async () => {
         const response = await axios.get('/api/categoria/get');
-        console.log(response);
         setCategoria(response.data);
     };
 
@@ -43,7 +42,7 @@ export const GestionarServicios = () => {
         const file = event.target.files[0];
         if (file && file.type.startsWith('image/')) {
             setSelectedFile(file);
-            setErrorMessage(''); // Limpiar el mensaje de error si el archivo es válido
+            setErrorMessage('');
         } else {
             setSelectedFile(null);
             setErrorMessage('Solo se permiten archivos de imagen.');
@@ -66,11 +65,11 @@ export const GestionarServicios = () => {
         });
         setSelectedFile(null);
         setErrorMessage('');
+        setIsEditMode(false);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         const formData = new FormData();
         formData.append("img", selectedFile);
         formData.append("nombre", newService.lugar);
@@ -80,17 +79,42 @@ export const GestionarServicios = () => {
         formData.append("categoriaId", newService.servicios);
 
         try {
-            const response = await axios.post('/api/local/save', formData);
-            setShowModal(false); // Cerrar el modal después de guardar
-            fechLugares(); // Refrescar la lista de lugares
-            handleReset(); // Limpiar los campos después de guardar
+            if (isEditMode) {
+                await axios.put(`/api/local/update/${newService.codigo}`, formData);
+            } else {
+                await axios.post('/api/local/save', formData);
+            }
+            setShowModal(false);
+            fechLugares();
+            handleReset();
         } catch (error) {
             console.error("Error al guardar el lugar:", error);
         }
     };
 
+    const handleDelete = async (codigo) => {
+        try {
+            await axios.delete(`/api/local/delete/${codigo}`);
+            fechLugares();
+        } catch (error) {
+            console.error("Error al eliminar el lugar:", error);
+        }
+    };
+
     const handleEdit = (codigo) => {
-        alert(`Editando el registro con código: ${codigo}`);
+        const lugar = data.find(item => item.idLocal === codigo);
+        if (lugar) {
+            setNewService({
+                codigo: lugar.idLocal,
+                lugar: lugar.nombre,
+                ubicacion: lugar.ubicacion,
+                descripcion: lugar.descripcion,
+                precio: lugar.precio,
+                servicios: lugar.categoria.id
+            });
+            setIsEditMode(true);
+            setShowModal(true);
+        }
     };
 
     return (
@@ -100,8 +124,7 @@ export const GestionarServicios = () => {
                 <p>Administrar Lugares</p>
             </div>
             <div className="gestion-contenido">
-                <div className="mensaje-exito"></div>
-                <button className="btn-agregar" onClick={toggleModal}>Agregar nuevo lugar</button>
+                <button className="btn-agregar" onClick={() => { handleReset(); toggleModal(); }}>Agregar nuevo lugar</button>
                 <table className="tabla-servicios">
                     <thead>
                         <tr>
@@ -125,10 +148,10 @@ export const GestionarServicios = () => {
                                 <td>{item.categoria.descripcion}</td>
                                 <td>
                                     <button className="btn-editar" onClick={() => handleEdit(item.idLocal)}>
-                                        <FontAwesomeIcon icon={faEdit} /> {/* Icono de edición */}
+                                        <FontAwesomeIcon icon={faEdit} />
                                     </button>
-                                    <button className="btn-eliminar" onClick={() => handleDelete(item.codigo)}>
-                                        <FontAwesomeIcon icon={faTrashAlt} /> {/* Icono de eliminación */}
+                                    <button className="btn-eliminar" onClick={() => handleDelete(item.idLocal)}>
+                                        <FontAwesomeIcon icon={faTrashAlt} />
                                     </button>
                                 </td>
                             </tr>
@@ -141,11 +164,10 @@ export const GestionarServicios = () => {
                     <span>Siguiente</span>
                 </div>
 
-                {/* Modal para agregar nuevo servicio */}
                 {showModal && (
                     <div className="modal-overlay">
                         <div className="modal-content">
-                            <h2>Agregar nuevo lugar</h2>
+                            <h2>{isEditMode ? 'Editar lugar' : 'Agregar nuevo lugar'}</h2>
                             <form onSubmit={handleSubmit}>
                                 <div className="input-group">
                                     <label>Lugar</label>
@@ -190,13 +212,12 @@ export const GestionarServicios = () => {
                                 <div className="input-group">
                                     <label>Servicios</label>
                                     <select
-                                        id="servicios"
                                         name="servicios"
                                         value={newService.servicios}
                                         onChange={handleChange}
                                         required
                                     >
-                                        <option key="" value="">Seleccione Tipo de Identificación</option>
+                                        <option value="">Seleccione un servicio</option>
                                         {categoria.map((type) => (
                                             <option key={type.id} value={type.id}>
                                                 {type.descripcion}
