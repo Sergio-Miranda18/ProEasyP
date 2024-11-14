@@ -30,7 +30,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Ajusta el valor para más o menos opacidad */
+  background-color: rgba(0, 0, 0, 0.5); /* Superposición oscura */
   z-index: 1;
 }
 
@@ -157,6 +157,7 @@
 .contact-button:hover {
   background-color: #333;
 }
+
 /* Sección de Lugares Disponibles */
 .lugares-section {
   padding: 60px 20px;
@@ -173,25 +174,6 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 20px;
-}
-
-/* Sección de Lugares Disponibles */
-.lugares-section {
-  padding: 60px 20px;
-  text-align: center;
-  color: #f1efef;
-  border-radius: 10px;
-  margin-top: 20px;
-  max-width: 1200px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
-}
-
-.lugares-container {
-  display: flex;
-  justify-content: space-between; /* Asegura que las cartas estén una al lado de la otra */
-  flex-wrap: wrap; /* Permite que se ajusten en diferentes filas si es necesario */
   gap: 20px;
 }
 
@@ -238,7 +220,145 @@
 .lugar-item .btn:hover {
   background-color: #ffa700; /* Cambia de color al pasar el mouse */
 }
+
+/* Logo */
 .logo {
   max-width: 150px; /* Ajusta el tamaño del logo */
   margin-bottom: 20px; /* Espaciado debajo del logo */
+}
+
+/* Animación para los elementos que aparecen al hacer scroll */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-animation {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.scroll-visible {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.hero-section {
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.features-section, .services-section, .lugares-section, .contact-section {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.features-section.scroll-visible,
+.services-section.scroll-visible,
+.lugares-section.scroll-visible,
+.contact-section.scroll-visible {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+.top-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Estilos comunes para el contenedor */
+.inicio-container {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Modo Oscuro */
+.dark {
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #f1efef; /* Texto claro */
+}
+
+.dark .hero-section {
+  background-color: #333; /* Fondo más oscuro para la sección hero */
+}
+
+.dark .hero-button {
+  background-color: #555;
+  color: #fff;
+}
+
+.dark .service-item {
+  background-color: #444;
+  color: #fff;
+}
+
+.dark .btn-primary {
+  background-color: #777;
+  color: #fff;
+}
+
+
+/* Modo Claro */
+.light {
+  background-color: #f1f1f1; /* Fondo claro */
+  color: #000; /* Texto negro en modo claro */
+}
+
+.light .hero-section {
+  background-color: #f9f9f9; /* Fondo claro para la sección hero */
+}
+
+.light .hero-button, .light .btn-primary, .light .contact-button {
+  background-color: #007bff; /* Fondo de los botones */
+  color: #fff; /* Texto blanco */
+}
+
+.light .service-item, .light .lugares-container2 {
+  background-color: #fff; /* Fondo blanco para las secciones */
+  color: #000; /* Texto negro */
+}
+
+.light .feature h3, .light .feature p {
+  color: #000; /* Texto negro en las características */
+}
+
+.light button {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.light .top-controls button {
+  background-color: #fff;
+  color: #000; /* Texto negro para los botones de control */
+  border: 1px solid #ddd;
+}
+/* Estilo para el botón de Modo Oscuro/Claro */
+.top-controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #040404; /* Color de fondo */
+  color: #fff; /* Texto blanco */
+  transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+}
+
+.top-controls button:hover {
+  background-color: #44505e; /* Color al pasar el ratón */
+  transform: scale(1.05); /* Efecto de ampliación */
+}
+
+.top-controls button:focus {
+  outline: none; /* Elimina el borde cuando está enfocado */
 }

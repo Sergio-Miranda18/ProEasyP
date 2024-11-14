@@ -2,31 +2,49 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Inicio.css';
-import { API_BASE_URL } from '../../environment'; // Asegúrate de que esta ruta sea correcta
+import { API_BASE_URL } from '../../environment';
 
 const Inicio = () => {
   const navigate = useNavigate();
   const [lugares, setLugares] = useState([]);
-  
+  const [darkMode, setDarkMode] = useState(false);
+
   useEffect(() => {
     const fetchLugares = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/local/get`); // Cambia la ruta según tu API
+        const response = await axios.get(`${API_BASE_URL}/local/get`);
         setLugares(response.data);
       } catch (error) {
         console.error('Error al obtener los lugares de la base de datos', error);
       }
     };
     fetchLugares();
+
+    // Intersection Observer para animaciones de desplazamiento
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    // Elementos que deben ser observados
+    const elements = document.querySelectorAll('.features-section, .services-section, .lugares-section, .contact-section');
+    elements.forEach((element) => observer.observe(element));
   }, []);
 
   const handleLoginClick = () => {
-    navigate('/Credenciales'); // Cambia aquí la ruta a la de login
+    navigate('/Credenciales');
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
   };
 
   return (
-    <div className="inicio-container">
-      {/* Hero Section */}
+    <div className={`inicio-container ${darkMode ? 'dark' : 'light'}`}>
       <div className="hero-section">
         <h1 className="hero-title">Bienvenido a EasyPlanning</h1>
         <p className="hero-description">
@@ -37,8 +55,7 @@ const Inicio = () => {
         </button>
       </div>
 
-      {/* Features Section */}
-      <section className="features-section">
+      <section className="features-section scroll-animation">
         <h2>¿Por qué elegirnos?</h2>
         <div className="features">
           <div className="feature">
@@ -56,19 +73,16 @@ const Inicio = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="services-section">
+      <section className="services-section scroll-animation">
         <h2>Nuestros Servicios</h2>
         <p>Explora la variedad de servicios diseñados para ti.</p>
         <div className="services">
-          {/* Agrega aquí ítems de servicios con imágenes e información */}
           <div className="service-item">Canchas</div>
           <div className="service-item">Salones</div>
           <div className="service-item">Planificación</div>
         </div>
       </section>
 
-      {/* Lugares Section */}
       <section className="lugares-section">
         <h2>Lugares Disponibles</h2>
         <div className="lugares-container2">
@@ -89,14 +103,20 @@ const Inicio = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="contact-section">
+      <section className="contact-section scroll-animation">
         <h2>Contáctanos</h2>
         <p>¿Tienes alguna pregunta? Estamos aquí para ayudarte.</p>
         <button className="contact-button" onClick={() => navigate('/Contact')}>
           Contáctenos
         </button>
       </section>
+
+      <div className="top-controls">
+  <button onClick={toggleDarkMode}>
+    {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
+  </button>
+</div>
+
     </div>
   );
 };
