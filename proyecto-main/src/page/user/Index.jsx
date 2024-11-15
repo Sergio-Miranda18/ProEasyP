@@ -136,7 +136,7 @@ export const Index = () => {
                 <div className="blog-Content">
                     <div className="blog-1">
                         <img src="images/decoracion-bodas-playa.jpg" alt="" />
-                        <h3>EXPERIENCIA 1</h3>
+                        <h3>@Erick Hernandez</h3>
                         <p>
                             "EasyPlanning ha transformado la manera en que organizo mis eventos. 
                              La interfaz es intuitiva y encontrar el lugar perfecto para mi cumpleaños fue muy fácil. 
@@ -145,7 +145,7 @@ export const Index = () => {
                     </div>
                     <div className="blog-1">
                         <img src="images/salon.jpg" alt="" />
-                        <h3>EXPERIENCIA 2</h3>
+                        <h3>@Andres Pereira</h3>
                         <p>
                             "Tuve una experiencia maravillosa utilizando EasyPlanning para organizar una reunión de trabajo.
                             Las opciones de servicios personalizados hicieron que fuera mucho más sencillo coordinar todo. 
@@ -154,7 +154,7 @@ export const Index = () => {
                     </div>
                     <div className="blog-1">
                         <img src="images/eventos-sociales.jpg" alt="" />
-                        <h3>EXPERIENCIA 3</h3>
+                        <h3>@Maria Perez</h3>
                         <p>
                             "¡Me encantó usar EasyPlanning para nuestra boda! La variedad de lugares y paquetes es impresionante.
                              Además, el proceso de reserva fue rápido y sin complicaciones. 

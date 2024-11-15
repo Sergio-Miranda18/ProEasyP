@@ -13,13 +13,14 @@ import { VerReservas } from '../page/user/VerR';
 import { Lugares } from '../page/user/Lugares';
 import Inicio from '../page/Inicio/Inicio'; 
 import Confirmacion from '../componentes/Confirmacion/Confirmacion';
-
+import { Informacion } from '../page/Informacion/Informacion';
 export const AppRouter = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Navigate to="/Inicio" />} />
         <Route path="/Inicio" element={<Inicio />} />
+        <Route path="/Informacion" element={<Informacion />} />
 
         <Route path="/Credenciales" element={<IndexPage />} />
         <Route path="*" element={<PageNotFound />} />
