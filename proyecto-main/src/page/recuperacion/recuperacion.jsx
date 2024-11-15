@@ -21,7 +21,7 @@ export const Recuperacion = ({ setShowLogin, setShowRecuperacion }) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`${API_BASE_URL}/auth/register`, { email: formData.email });
+            const response = await axios.post(`${API_BASE_URL}/forgot-password/email`, { email: formData.email });
             console.log('Recuperación solicitada:', response.data);
             setShowPasswordFields(true);  
         } catch (error) {
@@ -29,10 +29,11 @@ export const Recuperacion = ({ setShowLogin, setShowRecuperacion }) => {
         }
     };
 
-    const handlePasswordSubmit = (e) => {
+    const handlePasswordSubmit = async (e) => {
         e.preventDefault();
 
         if (formData.newPassword === formData.confirmPassword) {
+            const response = await axios.post(`${API_BASE_URL}/forgot-password/reset`, { newPassword: formData.newPassword, email: formData.email  });
             alert('Contraseña actualizada correctamente');
             setShowRecuperacion(false);
             setShowLogin(true);
