@@ -14,6 +14,7 @@ import { Lugares } from '../page/user/Lugares';
 import Inicio from '../page/Inicio/Inicio'; 
 import Confirmacion from '../componentes/Confirmacion/Confirmacion';
 import { Informacion } from '../page/Informacion/Informacion';
+import ContactUs from '../page/ContactUs/ContactUs';
 export const AppRouter = () => {
   return (
     <>
@@ -21,6 +22,7 @@ export const AppRouter = () => {
         <Route path="/" element={<Navigate to="/Inicio" />} />
         <Route path="/Inicio" element={<Inicio />} />
         <Route path="/Informacion" element={<Informacion />} />
+        <Route path="/ContactUs" element={<ContactUs/>} />
 
         <Route path="/Credenciales" element={<IndexPage />} />
         <Route path="*" element={<PageNotFound />} />

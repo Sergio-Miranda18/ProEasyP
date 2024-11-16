@@ -24,7 +24,7 @@ export const IndexPage = () => {
     <ul className="navegacion">
         <a href="/">Inicio</a>
         <a href="/informacion">Información</a>
-        <a href="/Contactenos">Contáctenos</a>
+        <a href="/ContactUs">Contáctenos</a>
        </ul>
       </div>
 

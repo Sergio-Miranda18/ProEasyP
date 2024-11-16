@@ -49,7 +49,9 @@
     animation: slideUp 0.8s ease forwards;
     opacity: 0;
 }
-
+.section-1 p{
+color: #f1efef;
+}
 /* Títulos centrados */
 .section h2 {
     font-size: 2.2em;

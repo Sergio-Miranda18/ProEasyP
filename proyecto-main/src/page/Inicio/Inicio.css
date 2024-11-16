@@ -8,6 +8,29 @@
   align-items: center;
   padding-top: 8px;
 }
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 400px;
+  width: 90%;
+}
+.modal h3 {
+  margin-bottom: 15px;
+}
+.modal-item {
+  margin-bottom: 15px;
+}
+.modal-item h4 {
+  margin: 0;
+}
+
 
 /* Hero Section */
 .hero-section {
@@ -157,7 +180,12 @@
 .contact-button:hover {
   background-color: #333;
 }
-
+.services-section p {
+color: #f1f1f1;
+}
+.contact-section p {
+  color: aliceblue;
+}
 /* Sección de Lugares Disponibles */
 .lugares-section {
   padding: 60px 20px;
@@ -311,6 +339,10 @@
 .light {
   background-color: #f1f1f1; /* Fondo claro */
   color: #000; /* Texto negro en modo claro */
+}
+.light .lugar-item p {
+  font-size: 1rem;
+  color: #000000; /* Texto blanco para la descripción */
 }
 
 .light .hero-section {

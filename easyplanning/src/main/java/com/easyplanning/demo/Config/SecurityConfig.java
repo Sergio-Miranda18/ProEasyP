@@ -37,7 +37,7 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
     }
     private RequestMatcher publicEndpoinds(){
         return new OrRequestMatcher(
-          new AntPathRequestMatcher("/api/greeting/sayHelloPublic"),
+          new AntPathRequestMatcher("/api/auth/**"),
                 new AntPathRequestMatcher("/api/forgot-password/**"),
                 new AntPathRequestMatcher("/api/usuario/get")
         );

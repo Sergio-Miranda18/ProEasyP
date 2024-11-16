@@ -10,6 +10,11 @@ export const Informacion = () => {
         navigate(-1);  // Navega a la página anterior
     };
 
+    // Función para manejar el clic en "Contáctenos"
+    const handleContactClick = () => {
+        navigate('/contactus');  // Navega a la página de contacto
+    };
+
     return (
         <div className="informacion-container-1">
             <h1>Bienvenidos a EasyPlanning</h1>
@@ -43,7 +48,7 @@ export const Informacion = () => {
             <section className="section-1">
                 <h2>¿Tienes preguntas?</h2>
                 <p>
-                    Nuestro equipo de soporte está aquí para ayudarte. Visita la sección de <a href="#" onClick={() => alert('Formulario de contacto en construcción')}>Contáctenos</a> para más información.
+                    Nuestro equipo de soporte está aquí para ayudarte. Visita la sección de <a href="#" onClick={handleContactClick}>Contáctenos</a> para más información.
                 </p>
             </section>
             
