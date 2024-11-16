@@ -194,6 +194,39 @@
 .btnprimary-2:hover {
     background-color: #46a049;
 }
+.gestion-contenido {
+    width: 100%;
+    overflow-x: auto; /* Habilita el desplazamiento horizontal */
+    margin-top: 20px;
+}
+
+.tabla-servicios {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px; /* Establece un ancho mínimo para la tabla */
+}
+
+.tabla-servicios th,
+.tabla-servicios td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+
+
+.paginacion {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.paginacion .pagina-activa {
+    font-weight: bold;
+}
+
 
 /* Para pantallas pequeñas */
 @media(max-width: 767px) {
