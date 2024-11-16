@@ -62,7 +62,7 @@
     background-color: rgba(255, 254, 254, 0.95);
 }
 /* Botón de Atrás */
-.btn-atras {
+.btn-atras1 {
     background-color: #ec9819;
     color: white;
     padding: 10px 20px;
@@ -75,7 +75,7 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.btn-atras:hover {
+.btn-atras1:hover {
     background-color: #c2692a;
     transform: translateY(-2px);
 }

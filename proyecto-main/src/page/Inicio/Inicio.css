@@ -373,6 +373,7 @@ color: #f1f1f1;
   color: #000; /* Texto negro para los botones de control */
   border: 1px solid #ddd;
 }
+
 /* Estilo para el botón de Modo Oscuro/Claro */
 .top-controls button {
   padding: 10px 20px;

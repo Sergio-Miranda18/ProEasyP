@@ -60,7 +60,7 @@ export const VerReservas = () => {
                 )}
             </div>
             <div className="btn-atras-container">
-                <button className="btn-atras" onClick={handleBackClick}>
+                <button className="btn-atras1" onClick={handleBackClick}>
                     Atrás
                 </button>
             </div>

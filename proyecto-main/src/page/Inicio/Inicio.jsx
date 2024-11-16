@@ -8,8 +8,6 @@ const Inicio = () => {
   const navigate = useNavigate();
   const [lugares, setLugares] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [modalContent, setModalContent] = useState([]);
 
   useEffect(() => {
     const fetchLugares = async () => {
@@ -22,6 +20,7 @@ const Inicio = () => {
     };
     fetchLugares();
 
+    // Intersection Observer para animaciones de desplazamiento
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -31,6 +30,7 @@ const Inicio = () => {
       });
     });
 
+    // Elementos que deben ser observados
     const elements = document.querySelectorAll('.features-section, .services-section, .lugares-section, .contact-section');
     elements.forEach((element) => observer.observe(element));
   }, []);
@@ -41,17 +41,6 @@ const Inicio = () => {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
-  };
-
-  const handleMouseEnter = (nombre) => {
-    const filteredLugares = lugares.filter((lugar) => lugar.nombre.toLowerCase() === nombre.toLowerCase());
-    setModalContent(filteredLugares);
-    setShowModal(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowModal(false);
-    setModalContent([]);
   };
 
   return (
@@ -88,27 +77,9 @@ const Inicio = () => {
         <h2>Nuestros Servicios</h2>
         <p>Explora la variedad de servicios diseñados para ti.</p>
         <div className="services">
-          <div
-            className="service-item"
-            onMouseEnter={() => handleMouseEnter('Cancha')}
-            onMouseLeave={handleMouseLeave}
-          >
-            Canchas
-          </div>
-          <div
-            className="service-item"
-            onMouseEnter={() => handleMouseEnter('Salon')}
-            onMouseLeave={handleMouseLeave}
-          >
-            Salones
-          </div>
-          <div
-            className="service-item"
-            onMouseEnter={() => handleMouseEnter('Planificación')}
-            onMouseLeave={handleMouseLeave}
-          >
-            Planificación
-          </div>
+          <div className="service-item">Canchas</div>
+          <div className="service-item">Salones</div>
+          <div className="service-item">Planificación</div>
         </div>
       </section>
 
@@ -135,34 +106,17 @@ const Inicio = () => {
       <section className="contact-section scroll-animation">
         <h2>Contáctanos</h2>
         <p>¿Tienes alguna pregunta? Estamos aquí para ayudarte.</p>
-        <button className="contact-button" onClick={() => navigate('/ContactUs')}>
+        <button className="contact-button" onClick={() => navigate('/Contact')}>
           Contáctenos
         </button>
       </section>
 
       <div className="top-controls">
-        <button onClick={toggleDarkMode}>
-          {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
-        </button>
-      </div>
+  <button onClick={toggleDarkMode}>
+    {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
+  </button>
+</div>
 
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h3>Opciones disponibles:</h3>
-            {modalContent.length > 0 ? (
-              modalContent.map((item) => (
-                <div key={item.idLocal}>
-                  <h4>{item.nombre}</h4>
-                  <p>{item.descripcion}</p>
-                </div>
-              ))
-            ) : (
-              <p>No hay elementos disponibles.</p>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

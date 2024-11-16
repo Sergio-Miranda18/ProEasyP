@@ -134,7 +134,7 @@ export const Reserva = () => {
               required
             />
           </div>
-          <div className="back-button">
+          <div className="back-button2">
             <a href="/Index">Cancelar</a>
           </div>
 
