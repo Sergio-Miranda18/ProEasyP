@@ -166,3 +166,102 @@ html, body {
 .registrar a:hover {
     text-decoration: underline;
 }
+
+/* Media query para pantallas de hasta 768px */
+@media screen and (max-width: 768px) {
+    .datosregistro {
+        width: 400px; /* Reduce el ancho */
+        padding: 15px; /* Reduce el padding */
+        border-width: 2px; /* Bordes más delgados */
+        border-radius: 15px; /* Bordes más suaves */
+    }
+
+    .icono-cerrar {
+        width: 30px; /* Icono más pequeño */
+        height: 30px;
+        font-size: 1em; /* Texto más pequeño */
+    }
+
+    .contenedor-form-register h2 {
+        font-size: 1.8em; /* Texto más pequeño */
+    }
+
+    .contenedor-input-resgistro {
+        height: 40px; /* Reduce la altura */
+        margin: 20px 0; /* Menor margen */
+    }
+
+    .contenedor-input-resgistro label {
+        font-size: 0.9em; /* Fuente más compacta */
+    }
+
+    .contenedor-input-resgistro input {
+        font-size: 1rem; /* Texto más pequeño */
+    }
+
+    .contenedor-input-resgistro .icono {
+        font-size: 1em; /* Icono más pequeño */
+    }
+
+    .btnregistrar {
+        height: 35px; /* Botón más compacto */
+        font-size: 0.8em; /* Fuente más pequeña */
+    }
+
+    .recordar label {
+        font-size: 0.8em; /* Texto más compacto */
+    }
+
+    .registrar p {
+        font-size: 0.8em; /* Texto más pequeño */
+    }
+}
+
+/* Media query para pantallas de hasta 480px */
+@media screen and (max-width: 480px) {
+    .datosregistro {
+        width: 300px; /* Ajuste significativo en el ancho */
+        padding: 10px; /* Reduce aún más el padding */
+        border-radius: 10px; /* Bordes más compactos */
+    }
+
+    .icono-cerrar {
+        width: 25px; /* Icono más pequeño */
+        height: 25px;
+        font-size: 0.9em; /* Fuente reducida */
+    }
+
+    .contenedor-form-register h2 {
+        font-size: 1.5em; /* Fuente más pequeña */
+    }
+
+    .contenedor-input-resgistro {
+        height: 35px; /* Inputs más pequeños */
+        margin: 15px 0; /* Menor separación */
+    }
+
+    .contenedor-input-resgistro label {
+        font-size: 0.8em; /* Texto más compacto */
+    }
+
+    .contenedor-input-resgistro input {
+        font-size: 0.9rem; /* Fuente ajustada */
+    }
+
+    .contenedor-input-resgistro .icono {
+        font-size: 0.9em; /* Icono más pequeño */
+    }
+
+    .btnregistrar {
+        height: 30px; /* Botón más compacto */
+        font-size: 0.7em; /* Texto reducido */
+    }
+
+    .recordar label {
+        font-size: 0.7em; /* Texto más pequeño */
+    }
+
+    .registrar p {
+        font-size: 0.7em; /* Texto más compacto */
+    }
+}

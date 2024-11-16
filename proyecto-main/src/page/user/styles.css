@@ -7,44 +7,6 @@
 }
 
 
-/**Movil**/
-
-@media (max-width: 767px) {
-    .desktop {
-        display: none;
-    }
-
-    .tablet {
-        display: none;
-    }
-}
-
-
-/**Tablet**/
-
-@media (min-width: 768px) and (max-width: 990px) {
-    .desktop {
-        display: none;
-    }
-
-    .movil {
-        display: none;
-    }
-}
-
-
-/**Escritorio**/
-
-@media (min-width: 991px) {
-    .tablet {
-        display: none;
-    }
-
-    .movil {
-        display: none;
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -557,101 +519,6 @@ p {
 margin-left: -30px;
 }
 
-
-@media(max-width:991px) {
-
-    .header1 {
-        min-height: 0vh;
-    }
-
-    .header1-content {
-        padding: 100px 30px;
-    }
-
-    .header1-content p {
-        padding: 0;
-    }
-
-    .Canchas {
-        padding: 30px;
-    }
-
-    .Canchas-content h2 {
-        padding: 0;
-    }
-
-    .txt-p {
-        padding: 0;
-    }
-
-    .Canchas-group {
-        flex-direction: column;
-        margin-bottom: 0;
-    }
-
-    .Canchas-img {
-        display: none;
-    }
-
-    .Servicios {
-        padding: 30px;
-    }
-
-    .Servicios-content p {
-        flex-direction: column;
-        margin-bottom: 0;
-    }
-
-    .Servicios-1 {
-        margin-bottom: 25px;
-    }
-
-
-    .general {
-        flex-direction: column;
-    }
-
-    .general-1 {
-        width: 100%;
-        padding: 30px;
-        text-align: center;
-    }
-
-    .general-2,
-    .general-3 {
-        display: none;
-    }
-
-    .blog {
-        padding: 30px;
-    }
-
-    .blog-Content {
-        flex-direction: column;
-    }
-
-    .blog-1 {
-        padding: 0;
-    }
-
-    .footer {
-        padding: 30px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-
-}
-.header1 ul{
-    font-size: 150%;
-}
-
-
-
-
 .header1-content {
     display: flex;
     flex-direction: column;
@@ -696,6 +563,213 @@ margin-left: -30px;
     text-shadow: 0 0 10px #e5e75d;
     text-decoration: underline 5px #fffb12;
     text-decoration-thickness: 10px;
+}
+
+@media(max-width: 767px) {
+    /* Header */
+    .header1 {
+        min-height: 100vh;
+        padding: 20px 0;
+    }
+
+    .header1-content {
+        padding: 40px 20px;
+        top: 0;
+    }
+
+    .header1-content h1 {
+        font-size: 36px;
+        line-height: 1.2;
+        margin-top: 60px;
+        text-decoration-thickness: 5px;
+    }
+
+    .header1-content p {
+        padding: 0 20px;
+        font-size: 14px;
+        margin-top: 30px;
+    }
+
+    /* Header Links */
+    .header-links {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+    }
+
+    .header-links a {
+        font-size: 16px;
+        padding: 10px;
+        text-decoration-thickness: 2px;
+    }
+
+    /* Logo */
+    .logo {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .logo-img {
+        width: 150px;
+    }
+
+    /* Canchas Section */
+    .Canchas {
+        padding: 40px 20px;
+    }
+
+    .Canchas-content h2 {
+        font-size: 32px;
+        line-height: 1.2;
+        padding: 0;
+        margin-bottom: 20px;
+        top: 0;
+    }
+
+    .txt-p {
+        padding: 0 20px;
+        margin-bottom: 40px;
+        top: 0;
+    }
+
+    /* Grupos de Canchas */
+    .Canchas-group1,
+    .SALONES-group,
+    .AIRE_LIBRE-group {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+        gap: 30px;
+    }
+
+    .Canchas-1,
+    .Canchas-2,
+    .Canchas-3 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .Canchas-1 h3,
+    .Canchas-2 h3,
+    .Canchas-3 h3 {
+        position: static;
+        margin: 15px 0;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .Canchas-1 img,
+    .Canchas-2 img,
+    .Canchas-3 img {
+        width: 120px;
+        height: 120px;
+        display: block;
+    }
+
+    /* Servicios Section */
+    .Servicios {
+        padding: 40px 20px;
+    }
+
+    .Servicios-content h2 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .Servicios-group,
+    .Servicios-group2,
+    .Servicios-group3 {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .Servicios-1,
+    .Servicios-2,
+    .Servicios-3 {
+        padding: 0 20px;
+    }
+
+    /* Blog Section */
+    .blog {
+        padding: 40px 20px;
+    }
+
+    .blog-Content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .blog-1 {
+        padding: 0;
+    }
+
+    .blog-1 img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .link {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Botones */
+    .btn-1 {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+    @media(max-width: 767px) {
+        /* Ocultar imágenes en la sección Canchas */
+        .general-2{
+            display: none;
+        }
+        .general-3{
+            display: none;
+        }
+    }
+    
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media(max-width: 380px) {
+    .header1-content h1 {
+        font-size: 28px;
+    }
+
+    .header-links a {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .Canchas-content h2 {
+        font-size: 28px;
+    }
+
+    .Canchas-1 h3,
+    .Canchas-2 h3,
+    .Canchas-3 h3 {
+        font-size: 20px;
+    }
 }
 
 

@@ -28,19 +28,6 @@
 
 
 
-@media (max-width: 768px) {
-    .header2 {
-        font-size: 35px;
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header2 {
-        font-size: 25px;
-        padding: 15px;
-    }
-}
 
 /* Botón de agregar servicio */
 .btn-agregar {
@@ -60,11 +47,6 @@
     transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-    .btn-agregar {
-        width: 100%; /* Botón ocupa todo el ancho en pantallas pequeñas */
-    }
-}
 
 /* Tabla de servicios */
 .tabla-servicios {
@@ -99,12 +81,7 @@
     background-color: #f1f1f1;
 }
 
-@media (max-width: 768px) {
-    .tabla-servicios th, .tabla-servicios td {
-        padding: 10px;
-        font-size: 12px;
-    }
-}
+
 
 /* Botones de acciones */
 .btn-editar, .btn-eliminar {
@@ -218,13 +195,122 @@
     background-color: #46a049;
 }
 
-@media (max-width: 768px) {
+/* Para pantallas pequeñas */
+@media(max-width: 767px) {
+    /* Contenedor de la reserva */
+    .reserva {
+        background-size: cover;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    /* Header */
+    .header2 {
+        font-size: 30px; /* Reduce el tamaño del texto */
+        padding: 20px;
+    }
+
+    /* Botón de agregar servicio */
+    .btn-agregar {
+        padding: 8px 15px; /* Ajusta el tamaño del botón */
+        font-size: 14px; /* Disminuye el tamaño del texto */
+    }
+
+    /* Tabla de servicios */
+    .tabla-servicios {
+        font-size: 12px; /* Reduce el tamaño de la fuente */
+    }
+
+    .tabla-servicios th, .tabla-servicios td {
+        padding: 10px;
+    }
+
+    /* Botones de acción */
+    .btn-editar, .btn-eliminar {
+        font-size: 14px; /* Disminuye el tamaño de los botones */
+        padding: 5px;
+    }
+
+    /* Paginación */
+    .paginacion {
+        text-align: center; /* Centra la paginación en móviles */
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 90%; /* Aumenta el tamaño en móviles */
+        padding: 15px;
+    }
+
+    /* Grupos de entrada */
+    .input-group input, .input-group select {
+        padding: 10px;
+        font-size: 14px; /* Ajusta el tamaño de la fuente */
+    }
+
+    /* Botones en el modal */
     .modal-buttons {
-        flex-direction: column;
+        flex-direction: column; /* Apila los botones en móviles */
+        gap: 10px;
     }
 
     .btnprimary-1, .btnprimary-2 {
-        width: 100%; /* Botones en modal ocupan todo el ancho */
-        margin-bottom: 10px;
+        width: 100%; /* Hace que los botones sean de ancho completo */
+        padding: 12px 0;
+    }
+
+    /* Ajustes adicionales para pantallas más pequeñas */
+    .header2 {
+        font-size: 24px; /* Reduce aún más el tamaño en pantallas muy pequeñas */
+        padding: 15px;
+    }
+}
+
+/* Para pantallas más pequeñas (menos de 480px) */
+@media(max-width: 480px) {
+    .reserva {
+        padding: 5px; /* Reduce el padding */
+    }
+
+    /* Header */
+    .header2 {
+        font-size: 20px; /* Reduce el tamaño de la fuente aún más */
+    }
+
+    /* Botón de agregar servicio */
+    .btn-agregar {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* Tabla de servicios */
+    .tabla-servicios {
+        font-size: 10px; /* Reduce aún más el tamaño de la fuente */
+    }
+
+    .tabla-servicios th, .tabla-servicios td {
+        padding: 8px;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 100%; /* Hace que el modal ocupe todo el ancho */
+        padding: 10px;
+    }
+
+    /* Grupos de entrada */
+    .input-group input, .input-group select {
+        font-size: 12px;
+    }
+
+    /* Botones en el modal */
+    .modal-buttons {
+        flex-direction: column; /* Mantiene los botones apilados */
+        gap: 8px;
+    }
+
+    .btnprimary-1, .btnprimary-2 {
+        padding: 10px 0;
+        font-size: 14px;
     }
 }

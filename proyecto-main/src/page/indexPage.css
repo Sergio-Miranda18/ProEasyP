@@ -140,60 +140,63 @@
 
 /* Media queries for responsiveness */
 
+/* Para pantallas de hasta 768px */
 @media screen and (max-width: 768px) {
     .Header-Login {
         padding: 15px 20px;
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Reduce el tamaño del encabezado */
     }
 
     .Logo {
-        font-size: 2rem;
-        margin-right: 50px;
+        font-size: 2rem; /* Tamaño ajustado del logo */
+        margin-right: 50px; /* Separación entre logo y otros elementos */
     }
 
     .Slogan-Wrapper {
-        top: 70px;
-        left: 30px;
-        font-size: 1rem;
+        top: 70px; /* Ajusta la posición vertical */
+        left: 30px; /* Ajusta la posición horizontal */
+        font-size: 1rem; /* Texto más pequeño */
     }
 
     .navegacion a {
-        margin-left: 20px;
-        font-size: 0.9rem;
+        margin-left: 20px; /* Espaciado entre los enlaces */
+        font-size: 0.9rem; /* Tamaño reducido */
     }
 
     .navegacion .btnInciarSesion {
-        width: 100px;
+        width: 100px; /* Botón más pequeño */
         height: 40px;
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Texto del botón más compacto */
     }
 }
 
+/* Para pantallas de hasta 480px (muy pequeñas, como móviles antiguos) */
 @media screen and (max-width: 480px) {
     .Header-Login {
-        padding: 10px 15px;
+        padding: 10px 15px; /* Reduce el padding para caber en pantallas más pequeñas */
         font-size: 1.2rem;
     }
 
     .Logo {
-        font-size: 1.5rem;
+        font-size: 1.2rem; /* Logo más pequeño */
         margin-right: 30px;
     }
 
     .Slogan-Wrapper {
-        top: 60px;
-        left: 20px;
-        font-size: 0.9rem;
+        top: 60px; /* Ajusta más la posición */
+        left: 10px;
+        font-size: 0.9rem; /* Reduce aún más el texto */
     }
 
     .navegacion a {
-        margin-left: 10px;
-        font-size: 0.8rem;
+        margin-left: 8px;
+        font-size: 0.8rem; /* Texto compacto */
+       
     }
 
-    .navegacion .btnInciarSesion {
-        width: 80px;
-        height: 35px;
-        font-size: 0.8rem;
+    .navegacion {
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
     }
 }

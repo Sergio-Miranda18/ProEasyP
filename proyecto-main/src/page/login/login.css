@@ -151,3 +151,96 @@
     cursor: pointer;
     color: #fff; /* Cambiado a blanco */
 }
+/* Media query para pantallas de hasta 768px */
+@media screen and (max-width: 768px) {
+    .datoslogin {
+        width: 400px; /* Reduce el ancho */
+        height: 480px; /* Reduce la altura */
+        border-width: 2px; /* Bordes más delgados */
+        border-radius: 15px; /* Bordes más suaves */
+    }
+
+    .icono-cerrar {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em; /* Tamaño reducido del icono */
+    }
+
+    .contenedor-form-login h2 {
+        font-size: 2em; /* Texto más pequeño */
+    }
+
+    .contenedor-input-login {
+        height: 50px; /* Reduce la altura del input */
+        margin: 20px 0; /* Menor margen vertical */
+    }
+
+    .contenedor-input-login input {
+        font-size: 1rem; /* Fuente más pequeña */
+        padding: 0 30px 0 5px;
+    }
+
+    .contenedor-input-login .icono {
+        font-size: 1.2em; /* Icono más pequeño */
+    }
+
+    .recordar-login {
+        font-size: 0.8em; /* Texto más compacto */
+    }
+
+    .btnIniciar-login {
+        height: 40px; /* Botón más pequeño */
+        font-size: 0.9em;
+    }
+
+    .registrar-login {
+        font-size: 0.8em;
+    }
+}
+
+/* Media query para pantallas de hasta 480px */
+@media screen and (max-width: 480px) {
+    .datoslogin {
+        width: 300px; /* Ajuste significativo en el ancho */
+        height: 400px; /* Altura más reducida */
+        border-width: 1.5px; /* Bordes más finos */
+        border-radius: 10px;
+    }
+
+    .icono-cerrar {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2em;
+    }
+
+    .contenedor-form-login h2 {
+        font-size: 1.8em; /* Fuente más pequeña */
+    }
+
+    .contenedor-input-login {
+        height: 45px; /* Inputs más pequeños */
+        margin: 15px 0; /* Menor separación */
+    }
+
+    .contenedor-input-login input {
+        font-size: 0.9rem; /* Fuente compacta */
+        padding: 0 25px 0 5px;
+    }
+
+    .contenedor-input-login .icono {
+        font-size: 1em; /* Icono más pequeño */
+    }
+
+    .recordar-login {
+        font-size: 0.7em;
+    }
+
+    .btnIniciar-login {
+        height: 35px; /* Botón más compacto */
+        font-size: 0.8em;
+    }
+
+    .registrar-login {
+        font-size: 0.7em;
+    }
+}
