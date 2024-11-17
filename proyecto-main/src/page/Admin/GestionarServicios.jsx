@@ -4,6 +4,7 @@ import './GestionarR.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import Favicon from 'react-favicon';
 
 export const GestionarServicios = () => {
     const [data, setData] = useState([]);
@@ -123,6 +124,10 @@ export const GestionarServicios = () => {
             <div className="header2">
                 <p>Administrar Lugares</p>
             </div>
+            <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             <div className="gestion-contenido">
                 <button className="btn-agregar" onClick={() => { handleReset(); toggleModal(); }}>Agregar nuevo lugar</button>
                 <table className="tabla-servicios">

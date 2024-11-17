@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { API_BASE_URL } from '../../environment';
+import Favicon from 'react-favicon';
 
 export const Recuperacion = ({ setShowLogin, setShowRecuperacion }) => {
     const [formData, setFormData] = useState({ email: '', newPassword: '', confirmPassword: '' });
@@ -64,7 +65,10 @@ export const Recuperacion = ({ setShowLogin, setShowRecuperacion }) => {
                                 placeholder="Ingresa tu correo"
                             />
                         </div>
-
+                        <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
                         {showPasswordFields && (
                             <>
                                 <div className="contenedor-input">

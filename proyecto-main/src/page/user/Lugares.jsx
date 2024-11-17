@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Lugares.css';
 import { API_BASE_URL } from '../../environment';
-
+import Favicon from 'react-favicon';
 export const Lugares = () => {
     const [lugares, setLugares] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -34,7 +34,10 @@ export const Lugares = () => {
                 <h2>Lugares Disponibles</h2>
                 <div style={{ width: '100px' }} /> {/* Espacio reservado para mantener la alineación */}
             </div>
-
+            <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             {/* Contenido principal */}
             <div className="content">
                 {/* Barra de búsqueda */}

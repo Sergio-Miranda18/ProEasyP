@@ -1,6 +1,6 @@
 import "./Confirmacion.css";
 import { useConfirmacion } from "./useConfirmacion";
-
+import Favicon from 'react-favicon';
 const Confirmacion = () => {
   const { datosReserva } = useConfirmacion();
 
@@ -46,7 +46,10 @@ const Confirmacion = () => {
           </li>
         </ul>
       </div>
-
+      <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
       <button
         className="boton-volver"
         onClick={() => (window.location.href = "/Index")}

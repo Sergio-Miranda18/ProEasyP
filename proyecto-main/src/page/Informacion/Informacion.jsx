@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';  // Importamos useNavigate para navegar entre rutas
 import './Informacion.css';
-
+import Favicon from 'react-favicon';
 export const Informacion = () => {
     const navigate = useNavigate();  // Usamos useNavigate para navegar
 
@@ -16,6 +16,7 @@ export const Informacion = () => {
     };
 
     return (
+        
         <div className="informacion-container-1">
             <h1>Bienvenidos a EasyPlanning</h1>
             <section className="section">
@@ -51,7 +52,10 @@ export const Informacion = () => {
                     Nuestro equipo de soporte está aquí para ayudarte. Visita la sección de <a href="#" onClick={handleContactClick}>Contáctenos</a> para más información.
                 </p>
             </section>
-            
+            <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             {/* Botón Atrás al final */}
             <button className="btn-atras" onClick={handleBackClick}>Atrás</button>
         </div>

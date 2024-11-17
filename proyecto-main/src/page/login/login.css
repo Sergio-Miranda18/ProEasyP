@@ -150,6 +150,10 @@
     transform: translateY(-50%);
     cursor: pointer;
     color: #fff; /* Cambiado a blanco */
+
+}
+.registrar-login a {
+    color: #000000;
 }
 /* Media query para pantallas de hasta 768px */
 @media screen and (max-width: 768px) {

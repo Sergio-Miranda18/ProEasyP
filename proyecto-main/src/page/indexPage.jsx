@@ -3,7 +3,7 @@ import './indexPage.css'
 import { Login } from './login/login';
 import { Registro } from './register/registro';
 import { Recuperacion } from './recuperacion/recuperacion';
-
+import Favicon from 'react-favicon';
 export const IndexPage = () => {
     const [showLogin, setShowLogin] = useState(true);
     const toggleForm = () => {
@@ -17,6 +17,7 @@ export const IndexPage = () => {
     const [showRecuperacion, setShowRecuperacion] = useState(false);
 
     return (
+        
         <div className='Index-Page'>
            <div className='Header-Login'>
     <h2 className="Logo">EasyPlanning</h2>
@@ -27,7 +28,10 @@ export const IndexPage = () => {
         <a href="/ContactUs">Contáctenos</a>
        </ul>
       </div>
-
+      <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             <div className="index-login">
                 <div className={`loginindex ${showLogin ? 'show' : ''}`}>
                     {showLogin && (

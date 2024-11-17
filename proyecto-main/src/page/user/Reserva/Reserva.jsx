@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Reserva.css";
 import { PAYMENT_URL, PAYU } from "../../../environment";
 import { useReserva } from "./useReserva";
-
+import Favicon from 'react-favicon';
 export const Reserva = () => {
   const {
     categoriaTypes,
@@ -137,7 +137,10 @@ export const Reserva = () => {
           <div className="back-button2">
             <a href="/Index">Cancelar</a>
           </div>
-
+          <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
           <input
             className="reserva-button"
             name="Submit"

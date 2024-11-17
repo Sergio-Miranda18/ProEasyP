@@ -16,6 +16,8 @@ import Confirmacion from '../componentes/Confirmacion/Confirmacion';
 import { Informacion } from '../page/Informacion/Informacion';
 import ContactUs from '../page/ContactUs/ContactUs';
 import { ReservasCanceladas } from '../page/Admin/ReservasCanceladas';
+import Perfil from '../page/user/Perfil';
+import TerminosCondiciones from '../page/user/Reserva/TerminosCondiciones';
 export const AppRouter = () => {
   return (
     <>
@@ -39,12 +41,19 @@ export const AppRouter = () => {
           <Route path="/VerR" element={
             <ProtectedRoute allowedRoles={['USER']} element={<VerReservas />} />
           } />
+          <Route path="/Perfil" element={
+            <ProtectedRoute allowedRoles={['USER']} element={<Perfil />} />
+          } />
           <Route path="/Lugares" element={
             <ProtectedRoute allowedRoles={['USER']} element={<Lugares />} />
           } />
           <Route path="/confirmacion" element={
                   <ProtectedRoute allowedRoles={['USER']} element={<Confirmacion />} />
           } />
+          <Route path="/TerminosCondiciones" element={
+                  <ProtectedRoute allowedRoles={['USER']} element={<TerminosCondiciones />} />
+          } />
+         
 
           {"ADMINISTRADOR"}
           <Route path="/GestionarReserva" element={

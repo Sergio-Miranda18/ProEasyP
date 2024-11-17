@@ -1,0 +1,169 @@
+/* Perfil.css */
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/public/images/side-view-huge-decorated-served-table.jpg'); /* Fondo de imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  .profile-card {
+    background: rgba(255, 255, 255, 0); /* Carta completamente transparente */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Un poco más de sombra para resaltar */
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    text-align: center;
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Ligera línea de borde para definir la carta */
+  }
+  
+  .profile-card h2 {
+    font-size: 2rem;
+    color: #f1efef; /* Blanco con opacidad */
+    margin-bottom: 30px;
+  }
+  
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    color: #f1efef; /* Blanco para el texto */
+  }
+  
+  .profile-item .profile-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #0b7dda; /* Azul de los iconos */
+  }
+  
+  .profile-item p {
+    margin: 0;
+    color: white;
+  }
+  
+  .back-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0b7dda; /* Azul del botón */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #075fa7; /* Efecto hover para el botón */
+  }
+  /* Perfil.css */
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .user-profile {
+      padding: 20px;
+      background-image: url('/public/images/side-view-huge-decorated-served-table.jpg');
+      background-size: cover;
+    }
+  
+    .profile-card {
+      width: 100%;
+      max-width: 90%;
+      padding: 20px;
+      backdrop-filter: blur(6px); /* Menos desenfoque para dispositivos móviles */
+    }
+  
+    .profile-card h2 {
+      font-size: 1.6rem; /* Tamaño de texto ajustado */
+    }
+  
+    .profile-item {
+      font-size: 1rem; /* Tamaño de texto ajustado */
+    }
+  
+    .profile-item .profile-icon {
+      font-size: 1.2rem; /* Iconos más pequeños */
+    }
+  
+    .back-btn {
+      width: 100%;
+      padding: 12px 0;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Para pantallas medianas (tablets) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .user-profile {
+      padding: 40px;
+    }
+  
+    .profile-card {
+      width: 80%;
+      max-width: 500px;
+      padding: 25px;
+      backdrop-filter: blur(7px); /* Moderado desenfoque */
+    }
+  
+    .profile-card h2 {
+      font-size: 1.8rem; /* Tamaño de texto ajustado */
+    }
+  
+    .profile-item {
+      font-size: 1.1rem;
+    }
+  
+    .profile-item .profile-icon {
+      font-size: 1.4rem;
+    }
+  
+    .back-btn {
+      padding: 15px 25px;
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Para pantallas grandes (desktops) */
+  @media (min-width: 1025px) {
+    .user-profile {
+      padding: 50px;
+    }
+  
+    .profile-card {
+      width: 60%;
+      max-width: 600px;
+      padding: 30px;
+      backdrop-filter: blur(8px); /* Desenfoque completo para pantallas grandes */
+    }
+  
+    .profile-card h2 {
+      font-size: 2rem;
+    }
+  
+    .profile-item {
+      font-size: 1.2rem;
+    }
+  
+    .profile-item .profile-icon {
+      font-size: 1.5rem;
+    }
+  
+    .back-btn {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+    }
+  }
+  

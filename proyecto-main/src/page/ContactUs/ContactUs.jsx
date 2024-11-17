@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ContactUs.css';
-
+import Favicon from 'react-favicon';
 const ContactUs = () => {
   const navigate = useNavigate();
 
@@ -24,6 +24,10 @@ const ContactUs = () => {
             Copiar Email
           </button>
         </div>
+        <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
         {/* Recuadro para redes sociales */}
         <div className="contact-box">
           <h2>Chatea con nosotros aquí</h2>

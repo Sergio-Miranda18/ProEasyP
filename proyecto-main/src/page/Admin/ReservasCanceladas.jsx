@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MenuAdmin } from '../../componentes/Menu';
 import axios from 'axios';
 import './ReservasCanceladas.css';
-
+import Favicon from 'react-favicon';
 export const ReservasCanceladas = () => {
     const [cancelledReservations, setCancelledReservations] = useState([]);
 
@@ -26,6 +26,10 @@ export const ReservasCanceladas = () => {
             <div className="header">
                 <p>Reservas Canceladas</p>
             </div>
+            <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             <div className="gestion-contenido">
                 <table className="tabla-canceladas">
                     <thead>

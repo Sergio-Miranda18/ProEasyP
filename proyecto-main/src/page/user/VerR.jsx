@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './VerR.css';
 import { API_BASE_URL } from '../../environment';
-
+import Favicon from 'react-favicon';
 export const VerReservas = () => {
     const [reservas, setReservas] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -74,6 +74,10 @@ export const VerReservas = () => {
             <div className="header">
                 <h1>Mis Reservas</h1>
             </div>
+            <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             <div className="reservas-list">
                 {loading ? (
                     <p>Cargando reservas...</p>

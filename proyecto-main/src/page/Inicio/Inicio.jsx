@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Inicio.css';
 import { API_BASE_URL } from '../../environment';
+import Favicon from 'react-favicon';
+
 
 const Inicio = () => {
   const navigate = useNavigate();
@@ -42,8 +44,17 @@ const Inicio = () => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-
+  function App() {
+    return (
+      <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
+    );
+  }
+  
   return (
+    
     <div className={`inicio-container ${darkMode ? 'dark' : 'light'}`}>
       <div className="hero-section">
         <h1 className="hero-title">Bienvenido a EasyPlanning</h1>
@@ -54,7 +65,10 @@ const Inicio = () => {
           Iniciar Sesión
         </button>
       </div>
-
+      <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
       <section className="features-section scroll-animation">
         <h2>¿Por qué elegirnos?</h2>
         <div className="features">

@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-
+import Favicon from 'react-favicon';
 export const Index = () => {
     
 
@@ -15,7 +15,9 @@ export const Index = () => {
                             <a href="/Reserva">Reservas</a>
                             <a href="/Lugares">Lugares</a>
                             <a href="VerR">Ver reservas</a>
+                            <a href="/Perfil">Perfil</a>
                             <a href="/">Salir</a>
+                            
                         
                     </ul>
                     <h1>EasyPlanning</h1>
@@ -27,6 +29,10 @@ export const Index = () => {
                         ¡Reserva ahora y comienza a crear recuerdos inolvidables!
                     </p>
                 </div>
+                <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             </header>
             <section className="Canchas">
                 <div className="Canchas-content container">
@@ -181,7 +187,7 @@ export const Index = () => {
                         <ul>
                             <li><a href="#">Atencion de 8 am a 12 pm</a></li>
                             <li><a href="#">Sobre nosotros</a></li>
-                            <li><a href="#">Terminos y Condiciones</a></li>
+                            <li><a href="/TerminosCondiciones">Terminos y Condiciones</a></li>
                             <li><a href="#">Afiliate con nosotros</a></li>
                         </ul>
                     </div>

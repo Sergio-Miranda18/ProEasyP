@@ -4,7 +4,7 @@
 /* Estilos para la página de información */
 .informacion-container-1 {
     padding: 50px;  /* Ajuste del espaciado del contenedor */
-    background-color: #090f1d;
+    background-color: #000;
 }
 
 /* Contenedor principal de la página de información */
@@ -55,7 +55,7 @@ color: #f1efef;
 /* Títulos centrados */
 .section h2 {
     font-size: 2.2em;
-    color: #0b7dda;
+    color: #ffffff;
     margin-bottom: 15px;
     text-align: center;
     font-family: 'Playfair Display', serif;
