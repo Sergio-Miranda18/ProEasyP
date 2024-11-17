@@ -140,6 +140,9 @@
     margin-bottom: 20px;
     font-size: 24px;
 }
+.modal-content h2{
+    color: black;
+}
 
 /* Grupos de entrada */
 .input-group {

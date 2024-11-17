@@ -15,6 +15,7 @@ import Inicio from '../page/Inicio/Inicio';
 import Confirmacion from '../componentes/Confirmacion/Confirmacion';
 import { Informacion } from '../page/Informacion/Informacion';
 import ContactUs from '../page/ContactUs/ContactUs';
+import { ReservasCanceladas } from '../page/Admin/ReservasCanceladas';
 export const AppRouter = () => {
   return (
     <>
@@ -51,6 +52,9 @@ export const AppRouter = () => {
           } />
           <Route path="/GestionarServicios" element={
             <ProtectedRoute allowedRoles={['ADMIN']} element={<GestionarServicios />} />
+          } />
+          <Route path="/ReservasCanceladas" element={
+            <ProtectedRoute allowedRoles={['ADMIN']} element={<ReservasCanceladas />} />
           } />
         </Route>
       </Routes>

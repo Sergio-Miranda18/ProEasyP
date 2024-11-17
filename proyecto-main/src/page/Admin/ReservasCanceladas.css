@@ -1,0 +1,66 @@
+.reservas-canceladas-container {
+    padding: 20px;
+    background-color: #090f1d; /* Fondo oscuro */
+    min-height: 100vh;
+    background-image: url("/public/images/side-view-huge-decorated-served-table.jpg");
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Hace que la imagen permanezca fija al hacer scroll */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    background-color: #d47414;
+    text-align: center;
+    font-size: 55px;
+    font-weight: bold;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gestion-contenido {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    background-color: rgba(9, 15, 29, 0.8); /* Fondo semitransparente para mejor legibilidad */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tabla-canceladas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #f1efef;
+}
+
+.tabla-canceladas th, .tabla-canceladas td {
+    border: 1px solid #1c2333;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-canceladas th {
+    background-color: #1c2333;
+    color: #0b7dda; /* Azul */
+}
+
+.tabla-canceladas tr:nth-child(even) {
+    background-color: #1c2333; /* Fondo alternado */
+}
+
+.tabla-canceladas tr:hover {
+    background-color: #0b7dda; /* Azul */
+    color: #fff;
+}
+
+.sin-reservas {
+    text-align: center;
+    font-style: italic;
+    color: #ffffff; /* Blanco */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Sombra para visibilidad */
+}

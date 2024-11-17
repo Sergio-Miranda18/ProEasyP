@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate para navegación
+import { useNavigate } from 'react-router-dom';
 import './VerR.css';
 import { API_BASE_URL } from '../../environment';
 
 export const VerReservas = () => {
     const [reservas, setReservas] = useState([]);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate(); // Hook para navegación
+    const [showDialog, setShowDialog] = useState(false);
+    const [selectedReserva, setSelectedReserva] = useState(null);
+    const [cancelReason, setCancelReason] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchReservas = async () => {
             try {
-                
                 const response = await axios.get(`${API_BASE_URL}/reserva/get`);
-                const email=localStorage.getItem('email')
-                if(email){
-                    const filtered =response.data.filter(item => item.email.email && item.email.username === email); 
-                     setReservas(filtered);
-                }
-                else{
-                    setReservas([])
+                const email = localStorage.getItem('email');
+                if (email) {
+                    const filtered = response.data.filter(item => item.email.email && item.email.username === email);
+                    setReservas(filtered);
+                } else {
+                    setReservas([]);
                 }
             } catch (error) {
                 console.error('Error al cargar reservas: ', error);
@@ -33,7 +34,39 @@ export const VerReservas = () => {
     }, []);
 
     const handleBackClick = () => {
-        navigate(-1); // Navega hacia atrás en el historial
+        navigate(-1);
+    };
+
+    const handleCancelClick = (reserva) => {
+        setSelectedReserva(reserva);
+        setShowDialog(true);
+    };
+
+    const handleDialogClose = () => {
+        setShowDialog(false);
+        setSelectedReserva(null);
+        setCancelReason('');
+    };
+
+    const handleCancelConfirm = async () => {
+        if (cancelReason.trim() === '') {
+            alert('Por favor, ingresa un motivo para la cancelación.');
+            return;
+        }
+
+        try {
+            await axios.post(`${API_BASE_URL}/reserva/cancel`, {
+                reservaId: selectedReserva.id,
+                motivo: cancelReason,
+            });
+            alert('Reserva cancelada exitosamente.');
+            setReservas((prev) => prev.filter((reserva) => reserva.id !== selectedReserva.id));
+        } catch (error) {
+            console.error('Error al cancelar la reserva:', error);
+            alert('Hubo un problema al cancelar la reserva.');
+        } finally {
+            handleDialogClose();
+        }
     };
 
     return (
@@ -53,10 +86,14 @@ export const VerReservas = () => {
                                 <p><strong>Hora:</strong> {new Date(reserva.fecha).toLocaleTimeString()}</p>
                                 <p><strong>Paquete:</strong> {reserva.paquete.nombre}</p>
                                 <p><strong>Estado:</strong> {reserva.estado}</p>
+                                <button className="btn-cancelar" onClick={() => handleCancelClick(reserva)}>
+                                    Cancelar Reserva
+                                </button>
                             </div>
                         ))
                     ) : (
-                           <p className="no-reservas">No tienes reservas disponibles.</p>                    )
+                        <p className="no-reservas">No tienes reservas disponibles.</p>
+                    )
                 )}
             </div>
             <div className="btn-atras-container">
@@ -64,6 +101,24 @@ export const VerReservas = () => {
                     Atrás
                 </button>
             </div>
+
+            {showDialog && (
+                <div className="dialog-overlay">
+                    <div className="dialog">
+                        <h2>Cancelar Reserva</h2>
+                        <p>¿Por qué deseas cancelar esta reserva?</p>
+                        <textarea
+                            value={cancelReason}
+                            onChange={(e) => setCancelReason(e.target.value)}
+                            placeholder="Escribe tu motivo aquí..."
+                        ></textarea>
+                        <div className="dialog-buttons">
+                            <button className="btn-confirmar" onClick={handleCancelConfirm}>Confirmar</button>
+                            <button className="btn-cerrar" onClick={handleDialogClose}>Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
