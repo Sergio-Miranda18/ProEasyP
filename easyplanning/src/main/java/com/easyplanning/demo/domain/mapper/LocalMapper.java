@@ -14,6 +14,7 @@ public class LocalMapper {
         local.setUbicacion(localDTO.getUbicacion());
         local.setDescripcion(localDTO.getDescripcion());
         local.setImg(localDTO.getImg());
+        local.setStatus(localDTO.getStatus());
         return local;
     }
 
@@ -26,6 +27,7 @@ public class LocalMapper {
         localDTO.setUbicacion(local.getUbicacion());
         localDTO.setDescripcion(local.getDescripcion());
         localDTO.setImg(local.getImg());
+        localDTO.setStatus(local.getStatus());
 
 
         return localDTO;

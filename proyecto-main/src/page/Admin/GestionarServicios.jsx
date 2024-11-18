@@ -24,7 +24,17 @@ export const GestionarServicios = () => {
 
     const fechLugares = async () => {
         const response = await axios.get('/api/local/get');
-        setData(response.data);
+        console.log(response)
+        const local = ('Activado');
+            console.log(local)
+            if (local) {
+                const filteredData = response.data.filter(item => item.status === local); // Filtrar los datos por el local
+                setData(filteredData);
+                console.log("filteredData  ", filteredData)
+            } else {
+                setData([]);
+            }
+        
     };
 
     const fechCategoria = async () => {
@@ -95,7 +105,7 @@ export const GestionarServicios = () => {
 
     const handleDelete = async (codigo) => {
         try {
-            await axios.delete(`/api/local/delete/${codigo}`);
+            await axios.put(`/api/local/delete/${codigo}`);
             fechLugares();
         } catch (error) {
             console.error("Error al eliminar el lugar:", error);

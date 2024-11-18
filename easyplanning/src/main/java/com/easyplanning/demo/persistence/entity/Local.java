@@ -19,6 +19,9 @@ public class Local {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idLocal;
 
+    @Column (name = "estado")
+    private String status;
+
     @Column(name = "Nombre")
     private String nombre;
 

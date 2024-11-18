@@ -9,7 +9,17 @@ export const ReservasCanceladas = () => {
     // Obtener las reservas canceladas
     const fetchCancelledReservations = async () => {
         try {
-            const response = await axios.get('/api/reservas/canceladas');
+            const response = await axios.get(`api/reserva/get`);
+            console.log(response)
+        const local = ('Activado');
+            console.log(local)
+            if (local) {
+                const filteredData = response.data.filter(item => item.status === local); // Filtrar los datos por el local
+                setData(filteredData);
+                console.log("filteredData  ", filteredData)
+            } else {
+                setData([]);
+            }
             setCancelledReservations(response.data);
         } catch (error) {
             console.error("Error al obtener las reservas canceladas:", error);
