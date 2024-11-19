@@ -51,13 +51,13 @@ export const VerReservas = () => {
     const handleCancelConfirm = async () => {
         if (cancelReason.trim() === '') {
             alert('Por favor, ingresa un motivo para la cancelación.');
+            
             return;
         }
 
         try {
-            await axios.post(`${API_BASE_URL}/reserva/cancel`, {
-                reservaId: selectedReserva.id,
-                motivo: cancelReason,
+            await axios.put(`${API_BASE_URL}/reserva/cancel/${selectedReserva.id}`, {
+            cancelReason
             });
             alert('Reserva cancelada exitosamente.');
             setReservas((prev) => prev.filter((reserva) => reserva.id !== selectedReserva.id));

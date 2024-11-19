@@ -93,7 +93,10 @@ public class AuthServiceImpl implements AuthService {
                 .authorities(roles)
                 .build();
     }
-
+    @Override
+    public Usuario getCurrentUser(Authentication authentication) {
+        return (Usuario) authentication.getPrincipal();
+}
 
 
 }

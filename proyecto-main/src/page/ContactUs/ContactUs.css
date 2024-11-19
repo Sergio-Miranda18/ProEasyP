@@ -21,9 +21,11 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px; /* Aumenta la separación inferior */
     transition: background-color 0.3s ease;
-  }
+}
+
+
 
   .contact-box p {
   color: aliceblue;

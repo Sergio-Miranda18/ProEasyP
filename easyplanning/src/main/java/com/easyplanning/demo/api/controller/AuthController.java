@@ -6,6 +6,7 @@ import com.easyplanning.demo.api.controller.models.RegisterRequest;
 import com.easyplanning.demo.domain.service.AuthService;
 import com.easyplanning.demo.domain.service.JwtService;
 import com.easyplanning.demo.domain.service.UsuarioService;
+import com.easyplanning.demo.persistence.entity.Usuario;
 import com.easyplanning.demo.persistence.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,10 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
+    @GetMapping("/editar")
+    public ResponseEntity<Usuario> getCurrentUser(Authentication authentication) {
+        return ResponseEntity.ok(authService.getCurrentUser(authentication));
+    }
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> Register(@RequestBody RegisterRequest request){

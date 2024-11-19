@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ContactUs.css';
+import './ContactUs.css';  // Asegúrate de que tu archivo CSS está importado correctamente.
 import Favicon from 'react-favicon';
+
 const ContactUs = () => {
   const navigate = useNavigate();
 
@@ -11,7 +12,9 @@ const ContactUs = () => {
       <button className="back-button" onClick={() => navigate(-1)}>
         Atrás
       </button>
+
       <h1 className="welcome-message">¡Bienvenido a nuestra página de contacto!</h1>
+      
       <div className="contact-boxes">
         {/* Recuadro para email */}
         <div className="contact-box">
@@ -24,10 +27,9 @@ const ContactUs = () => {
             Copiar Email
           </button>
         </div>
-        <div>
+
         <Favicon url="/images/eas.png" />
-       
-      </div>
+        
         {/* Recuadro para redes sociales */}
         <div className="contact-box">
           <h2>Chatea con nosotros aquí</h2>

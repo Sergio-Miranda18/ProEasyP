@@ -64,4 +64,28 @@
     font-size: 0.9rem;
     color: #777;
   }
+  .boton-atras {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: black; /* Azul */
+    color: #ffffff; /* Blanco */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .boton-atras:hover {
+    background-color: #101010; /* Azul más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de zoom */
+  }
+  
+  .boton-atras:active {
+    background-color: #4c5155; /* Azul más oscuro al presionar */
+    transform: scale(0.95); /* Efecto de compresión */
+  }
   

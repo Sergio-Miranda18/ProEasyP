@@ -45,4 +45,7 @@ public class Reserva {
     @JoinColumn(name = "ID_Paquete")
     @ManyToOne
     private Paquete paquete;
+
+    @Column(name = "Motivo")
+    private String motivocancelacion;
 }

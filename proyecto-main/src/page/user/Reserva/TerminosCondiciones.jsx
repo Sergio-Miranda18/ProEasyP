@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Importar el hook
 import "./TerminosCondiciones.css"; // Importa el archivo CSS
-
+import Favicon from 'react-favicon';
 const TerminosCondiciones = () => {
+  const navigate = useNavigate(); // Instanciar el hook
+
   return (
     <div className="titulo">
       <h1 className="titulo">Términos y Condiciones</h1>
@@ -19,7 +22,10 @@ const TerminosCondiciones = () => {
           </ul>
         </div>
       </div>
-
+      <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
       <div className="card">
         <div className="card-content">
           <h2 className="card-header">2. Política de Reservas y Cancelaciones</h2>
@@ -71,6 +77,9 @@ const TerminosCondiciones = () => {
           </p>
         </div>
       </div>
+
+      {/* Botón "Atrás" al final */}
+      <button className="boton-atras" onClick={() => navigate(-1)}>Atrás</button>
     </div>
   );
 };

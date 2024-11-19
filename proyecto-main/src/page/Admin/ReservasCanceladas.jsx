@@ -11,16 +11,16 @@ export const ReservasCanceladas = () => {
         try {
             const response = await axios.get(`api/reserva/get`);
             console.log(response)
-        const local = ('Activado');
+        const local = ('CANCELADA');
             console.log(local)
             if (local) {
-                const filteredData = response.data.filter(item => item.status === local); // Filtrar los datos por el local
-                setData(filteredData);
+                const filteredData = response.data.filter(item => item.estado === local); // Filtrar los datos por el local
+                setCancelledReservations(filteredData);
                 console.log("filteredData  ", filteredData)
             } else {
-                setData([]);
+                setCancelledReservations([]);
             }
-            setCancelledReservations(response.data);
+            
         } catch (error) {
             console.error("Error al obtener las reservas canceladas:", error);
         }
@@ -56,10 +56,10 @@ export const ReservasCanceladas = () => {
                             cancelledReservations.map((reserva) => (
                                 <tr key={reserva.id}>
                                     <td>{reserva.id}</td>
-                                    <td>{reserva.cliente}</td>
+                                    <td>{reserva.email.nombre}</td>
                                     <td>{new Date(reserva.fecha).toLocaleDateString()}</td>
-                                    <td>{reserva.lugar}</td>
-                                    <td>{reserva.mensaje}</td>
+                                    <td>{reserva.local.nombre}</td>
+                                    <td>{reserva.motivocancelacion}</td>
                                 </tr>
                             ))
                         ) : (
