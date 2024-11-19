@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class LocalDTO {
     private Long idLocal;
+    private String status;
 
     private String nombre;
     private String ubicacion;

@@ -4,7 +4,7 @@ import axios from 'axios';
 import './Gestionar.css';
 import DataTable from 'react-data-table-component';
 import { API_BASE_URL } from '../../environment';
-
+import Favicon from 'react-favicon';
 export const GestionarReserva = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -115,6 +115,10 @@ export const GestionarReserva = () => {
             <div >
 
             </div>
+            <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             {loading ? (
                 <p>Loading...</p>
             ) : (

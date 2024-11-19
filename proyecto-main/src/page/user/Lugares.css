@@ -11,23 +11,32 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Cambiado a flex-start para evitar centrar verticalmente */
+    justify-content: flex-start;
     padding: 20px;
     color: white;
 }
 
-h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #ffffff;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(15, 30, 43, 0.8); /* Fondo semi-transparente */
+    padding: 10px 20px; /* Espaciado interno */
+    z-index: 1000; /* Para que esté por encima de otros elementos */
+    display: flex; /* Habilitar flexbox */
+    justify-content: space-between; /* Distribuir el espacio entre elementos */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.fixed-header h2 {
+    margin: 0; /* Eliminar margen para un mejor alineamiento */
+    flex-grow: 1; /* Permitir que el título ocupe el espacio disponible */
+    text-align: center; /* Centrar el texto */
 }
 
 .btn-back {
-    align-self: flex-start;
-    margin: 20px;
-    padding: 10px 20px; /* Aumentado el padding horizontal */
+    padding: 10px 20px; 
     background-color: #0f1e2b;
     color: white;
     border: none;
@@ -41,8 +50,13 @@ h2 {
     background-color: #095ea3;
 }
 
+.content {
+    margin-top: 80px; /* Espacio para evitar superposición con el contenedor fijo */
+    width: 100%; /* Asegurarse de que el contenido ocupe el 100% del contenedor */
+}
+
 .row {
-    width: 100%; /* Asegurarse de que la fila ocupe el 100% del contenedor */
+    width: 100%; 
 }
 
 .card {
@@ -51,7 +65,7 @@ h2 {
     overflow: hidden;
     transition: transform 0.3s ease;
     background: rgba(255, 255, 255, 0.9);
-    min-height: 350px; /* Ajuste de altura mínima */
+    min-height: 350px; 
 }
 
 .card:hover {
@@ -83,13 +97,21 @@ h2 {
 }
 
 .search-bar {
-    margin-bottom: 20px; /* Espacio debajo de la barra de búsqueda */
+    margin-bottom: 20px; 
 }
 
 input[type="text"] {
-    width: 100%; /* Ancho completo para la barra de búsqueda */
-    padding: 10px; /* Espaciado interno */
+    width: 100%; 
+    padding: 10px; 
     border: none;
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para un efecto de profundidad */
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }

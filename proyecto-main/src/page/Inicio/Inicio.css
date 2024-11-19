@@ -1,60 +1,397 @@
-/* Inicio.css */
+/* Contenedor Principal */
 .inicio-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #090f1d; /* Fondo oscuro */
-    color: #f1efef; /* Texto claro */
-    background-image: url('/public/images/side-view-huge-decorated-served-table.jpg'); /* Ajusta a la imagen de fondo que tienes */
-    background-size: cover;
-    background-position: center;
+  font-family: Arial, sans-serif;
+  color: #f1efef;
+  background-color: #3d3d3c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 400px;
+  width: 90%;
+}
+.modal h3 {
+  margin-bottom: 15px;
+}
+.modal-item {
+  margin-bottom: 15px;
+}
+.modal-item h4 {
+  margin: 0;
+}
+
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  background-image: url('/public/images/descarga.png'); /* Ajusta la ruta */
+  background-size: cover;
+  background-position: center;
+  color: #f1efef;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Superposición oscura */
+  z-index: 1;
+}
+
+.hero-title, .hero-description, .hero-button {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #f1efef;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ddd;
+}
+
+.hero-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+  background-color: #ff9505;
+}
+
+/* Sección de Características, Servicios y Testimonios */
+.features-section, .services-section, .testimonials-section, .contact-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para destacar la sección */
+  color: #f1efef;
+  border-radius: 10px;
+  margin-top: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.features, .services, .testimonials {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Estilos y Animación de Ampliación y Borde Naranja */
+.feature, .service-item, .testimonial {
+  width: 30%;
+  min-width: 250px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature:hover, .service-item:hover, .testimonial:hover {
+  transform: scale(1.05); /* Efecto de ampliación */
+  border-image: linear-gradient(45deg, #ff9505, #ffa700, #ff9505, #ffa700) 1;
+  box-shadow: 0px 0px 15px rgba(255, 153, 51, 0.7);
+}
+
+.feature:hover::before, .service-item:hover::before, .testimonial:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #ff9505, #ffa700, #ff9505, #ffa700);
+  border-image-slice: 1;
+  animation: border-animate 2s linear infinite;
+  border-radius: 8px;
+}
+
+@keyframes border-animate {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .inicio-content {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.6); /* Capa semitransparente */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
+  100% {
+    /* No hay cambios aquí */
   }
-  
-  .inicio-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #f1efef;
+}
+
+.feature h3, .service-item h3, .testimonial h3 {
+  font-size: 1.5rem;
+  color: #f1efef;
+  margin-bottom: 10px;
+}
+
+.feature p, .service-item p, .testimonial p {
+  font-size: 1rem;
+  color: #ffffff; /* Cambiado a blanco */
+}
+
+/* Botón de Contacto */
+.contact-button {
+  padding: 10px 20px;
+  background-color: #090f1d;
+  color: #f1efef;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+  background-color: #333;
+}
+.services-section p {
+color: #f1f1f1;
+}
+.contact-section p {
+  color: aliceblue;
+}
+/* Sección de Lugares Disponibles */
+.lugares-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro para destacar la sección */
+  color: #f1efef;
+  border-radius: 10px;
+  margin-top: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.lugares-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Estilo de cada lugar */
+.lugar-item {
+  flex: 1; /* Permite que las cartas se expandan equitativamente */
+  min-width: 200px; /* Ancho mínimo para cada carta */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lugar-item:hover {
+  transform: scale(1.05); /* Efecto de ampliación */
+  box-shadow: 0px 0px 15px rgba(255, 153, 51, 0.7);
+}
+
+.lugar-item h3 {
+  font-size: 1.5rem;
+  color: #ff9505; /* Color del título de los lugares */
+  margin-bottom: 10px;
+}
+
+.lugar-item p {
+  font-size: 1rem;
+  color: #ffffff; /* Texto blanco para la descripción */
+}
+
+/* Botón de reserva en los lugares */
+.lugar-item .btn {
+  padding: 10px 20px;
+  background-color: #ff9505;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.lugar-item .btn:hover {
+  background-color: #ffa700; /* Cambia de color al pasar el mouse */
+}
+
+/* Logo */
+.logo {
+  max-width: 150px; /* Ajusta el tamaño del logo */
+  margin-bottom: 20px; /* Espaciado debajo del logo */
+}
+
+/* Animación para los elementos que aparecen al hacer scroll */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
   }
-  
-  .inicio-description {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #f1efef;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .inicio-button {
-    background-color: #000000; /* Color claro para contrastar */
-    color: #e6e7e9;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .inicio-button:hover {
-    background-color:  #272626;
-  }
-  .inicio-description {
-    font-family: 'Georgia', serif; /* Elegante fuente serif */
-    font-size: 1.2rem; /* Tamaño de fuente más grande */
-    color: #fefefe; /* Color de texto oscuro para elegancia */
-    line-height: 1.6; /* Espaciado entre líneas */
-    margin: 20px 0; /* Espaciado superior e inferior */
-    text-align: center; /* Centrar el texto */
-    max-width: 600px; /* Ancho máximo para mantener la legibilidad */
-    margin-left: auto; /* Centrar horizontalmente */
-    margin-right: auto; /* Centrar horizontalmente */
-  }
-  
-  
+}
+
+.scroll-animation {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.scroll-visible {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.hero-section {
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.features-section, .services-section, .lugares-section, .contact-section {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.features-section.scroll-visible,
+.services-section.scroll-visible,
+.lugares-section.scroll-visible,
+.contact-section.scroll-visible {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+.top-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Estilos comunes para el contenedor */
+.inicio-container {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Modo Oscuro */
+.dark {
+  background-color: #1e1e1e; /* Fondo oscuro */
+  color: #f1efef; /* Texto claro */
+}
+
+.dark .hero-section {
+  background-color: #333; /* Fondo más oscuro para la sección hero */
+}
+
+.dark .hero-button {
+  background-color: #555;
+  color: #fff;
+}
+
+.dark .service-item {
+  background-color: #444;
+  color: #fff;
+}
+
+.dark .btn-primary {
+  background-color: #777;
+  color: #fff;
+}
+
+
+/* Modo Claro */
+.light {
+  background-color: #f1f1f1; /* Fondo claro */
+  color: #000; /* Texto negro en modo claro */
+}
+.light .lugar-item p {
+  font-size: 1rem;
+  color: #000000; /* Texto blanco para la descripción */
+}
+
+.light .hero-section {
+  background-color: #f9f9f9; /* Fondo claro para la sección hero */
+}
+
+.light .hero-button, .light .btn-primary, .light .contact-button {
+  background-color: #007bff; /* Fondo de los botones */
+  color: #fff; /* Texto blanco */
+}
+
+.light .service-item, .light .lugares-container2 {
+  background-color: #fff; /* Fondo blanco para las secciones */
+  color: #000; /* Texto negro */
+}
+
+.light .feature h3, .light .feature p {
+  color: #000; /* Texto negro en las características */
+}
+
+.light button {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.light .top-controls button {
+  background-color: #fff;
+  color: #000; /* Texto negro para los botones de control */
+  border: 1px solid #ddd;
+}
+
+/* Estilo para el botón de Modo Oscuro/Claro */
+.top-controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #040404; /* Color de fondo */
+  color: #fff; /* Texto blanco */
+  transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+}
+
+.top-controls button:hover {
+  background-color: #44505e; /* Color al pasar el ratón */
+  transform: scale(1.05); /* Efecto de ampliación */
+}
+
+.top-controls button:focus {
+  outline: none; /* Elimina el borde cuando está enfocado */
+}

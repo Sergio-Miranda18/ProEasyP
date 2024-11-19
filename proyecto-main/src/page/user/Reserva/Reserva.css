@@ -80,12 +80,12 @@
     color: #090f1d;
   }
 
-.back-button {
+.back-button2 {
   text-align: center;
   margin-top: 10px;
 }
 
-.back-button a {
+.back-button2 a {
   color: #fff;
   text-decoration: none;
   font-size: 1em;
@@ -95,7 +95,7 @@
   height: 40px;
 }
 
-.back-button a:hover {
+.back-button2 a:hover {
   color: #dab80b;
 }
 .custom-toast {

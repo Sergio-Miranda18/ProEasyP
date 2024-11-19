@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -38,5 +39,22 @@ public class ReservaController {
             return ResponseEntity.ok(existingReserva);
         }
         return ResponseEntity.notFound().build();
+    }
+    @PutMapping("/cancel/{id}")
+    public ResponseEntity<ReservaDTO> cancelarSolicitud(@PathVariable  String id,@RequestBody Map<String, String> motivo) {
+        Optional<ReservaDTO> optionalRequest = reservaService.findById(id);
+        if (optionalRequest.isPresent()) {
+            ReservaDTO request = optionalRequest.get();
+            // Asignar el estado "CANCELADA" de la entidad RequestState
+
+            String Motivo=motivo.get("cancelReason");
+
+          request.setMotivocancelacion(Motivo);
+
+            request.setEstado("CANCELADA");
+            reservaService.save(request);
+            return ResponseEntity.ok(request);
+        }
+        return ResponseEntity.ok().build();
     }
 }

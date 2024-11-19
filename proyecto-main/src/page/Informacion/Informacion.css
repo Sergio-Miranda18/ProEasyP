@@ -1,0 +1,152 @@
+/* Fuentes elegantes */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Playfair+Display:wght@400;600&display=swap');
+
+/* Estilos para la página de información */
+.informacion-container-1 {
+    padding: 50px;  /* Ajuste del espaciado del contenedor */
+    background-color: #000;
+}
+
+/* Contenedor principal de la página de información */
+.informacion-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Secciones distribuidas en la pantalla */
+.section:nth-child(even) {
+    border-left-color: #f1efef;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo para cada sección */
+.section {
+    margin-bottom: 30px;  /* Margen entre secciones */
+    padding: 20px;
+    border-left: 4px solid #0b7dda;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    transform: translateY(20px);
+    animation: slideUp 0.8s ease forwards;
+    opacity: 0;
+}
+.section-1 p{
+color: #f1efef;
+}
+/* Títulos centrados */
+.section h2 {
+    font-size: 2.2em;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Estilo de los párrafos */
+.section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: rgba(241, 239, 239, 0.9);
+    margin: 10px 0;
+    text-align: justify;
+}
+
+/* Listas ordenadas y desordenadas */
+.section ul, .section ol {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.section li {
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+    color: #f1efef;
+}
+
+.section li::before {
+    content: "•";
+    color: #0b7dda;
+    position: absolute;
+    left: 0;
+}
+
+/* Enlaces estilizados */
+a {
+    color: #0b7dda;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #f1efef;
+}
+
+/* Título principal */
+h1 {
+    font-size: 3.5em;
+    color: #f6f6f6;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+    text-align: center;
+}
+
+/* Estilo para el botón Atrás */
+.btn-atras {
+    background-color: #0b7dda;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;  /* Espaciado entre el contenido y el botón */
+    transition: background-color 0.3s ease;
+}
+
+.btn-atras:hover {
+    background-color: #0a6fa7;  /* Cambio de color cuando se pasa el ratón */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .informacion-page {
+        padding: 20px 10px;
+    }
+
+    .section {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .section h2 {
+        font-size: 1.8em;
+    }
+
+    .section p {
+        font-size: 1em;
+    }
+}

@@ -4,6 +4,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEye, faEyeSlash, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { API_BASE_URL } from '../../environment';
+import Favicon from 'react-favicon';
+import TerminosCondiciones from '../user/Reserva/TerminosCondiciones';
 
 export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) => {
   const [email, setEmail] = useState('');
@@ -76,7 +78,7 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
               />
               <label>Email</label>
             </div>
-
+           
             <div className="contenedor-input-login">
               <input
                 type={showPassword ? "text" : "password"} // Cambia el tipo según el estado de showPassword
@@ -98,6 +100,7 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
                   onChange={(e) => setRememberMe(e.target.checked)}
                 />
                 Recordar Sesión
+
               </label>
               <a href="#" onClick={recuperacion}>¿Olvidaste tu contraseña?</a>
             </div>
@@ -110,7 +113,11 @@ export const Login = ({ setShowLogin, setShowRegister, setShowRecuperacion }) =>
                 <a href="#" className="registrar-link" onClick={register}>
                   Regístrate
                 </a>
+                
               </p>
+              <a href="/TerminosCondiciones" className="registrar-link" onClick={TerminosCondiciones}>
+                  Terminos y Condiciones
+                </a>
             </div>
           </form>
         </div>

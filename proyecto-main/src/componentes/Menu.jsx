@@ -17,7 +17,7 @@ export const MenuAdmin = () => {
                             <ul className="men">
                                 <li><a href="/GestionarReserva"> Gestionar Reservas </a></li>
                                 <li><a href="/GestionarServicios"> Gestionar Lugares </a></li>
-                                <li><a href="/GestionarServicios"> PQRSD </a></li>
+                                <li><a href="/ReservasCanceladas"> Reservas canceladas </a></li>
 
                             </ul>
                         </nav>

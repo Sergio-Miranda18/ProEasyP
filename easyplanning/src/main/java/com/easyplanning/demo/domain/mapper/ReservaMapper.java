@@ -16,6 +16,7 @@ public class ReservaMapper {
         reserva.setPrecio(reservaDTO.getPrecio());
         reserva.setCategoria(reservaDTO.getCategoria());
         reserva.setPaquete(reservaDTO.getPaquete());
+        reserva.setMotivocancelacion(reservaDTO.getMotivocancelacion());
         return reserva;
     }
 
@@ -29,6 +30,7 @@ public class ReservaMapper {
         reservaDTO.setPrecio(reserva.getPrecio());
         reservaDTO.setCategoria(reserva.getCategoria());
         reservaDTO.setPaquete(reserva.getPaquete());
+        reservaDTO.setMotivocancelacion(reserva.getMotivocancelacion());
         return reservaDTO;
     }
 }

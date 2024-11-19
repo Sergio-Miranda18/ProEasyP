@@ -27,4 +27,5 @@ public class ReservaDTO {
     private BigInteger precio;
     private Categoria categoria;
     private Paquete paquete;
+    private String motivocancelacion;
 }

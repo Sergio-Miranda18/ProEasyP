@@ -153,3 +153,51 @@ html, body {
 .inicio a:hover {
     text-decoration: underline;
 }
+@media (max-width: 768px) {
+    .datosrecuperacion {
+        width: 85%; /* Reducir un poco el ancho */
+        height: auto; /* Ajustar la altura automáticamente */
+        padding: 15px;
+    }
+
+    .contenedor-form-recuperacion h2 {
+        font-size: 1.4em; /* Reducir el tamaño del texto */
+    }
+
+    .contenedor-input {
+        margin: 8px 0; /* Reducir el margen entre campos */
+    }
+
+    .btnrecuperacion {
+        height: 45px; /* Ajustar ligeramente el tamaño del botón */
+        font-size: 0.9em;
+    }
+
+    .icono-cerrar {
+        width: 28px; 
+        height: 28px;
+        font-size: 0.9em; /* Ajustar el tamaño del icono */
+    }
+}
+
+@media (max-width: 480px) {
+    .datosrecuperacion {
+        width: 95%; /* Más ancho en pantallas muy pequeñas */
+        border-radius: 8px; /* Menos redondeo en esquinas */
+    }
+
+    .contenedor-form-recuperacion h2 {
+        font-size: 1.2em; /* Más pequeño para pantallas muy pequeñas */
+    }
+
+    .btnrecuperacion {
+        height: 40px; /* Botón ligeramente más pequeño */
+        font-size: 0.85em; /* Reducir texto del botón */
+    }
+
+    .icono-cerrar {
+        width: 25px; 
+        height: 25px;
+        font-size: 0.8em; /* Más pequeño el tamaño del icono */
+    }
+}

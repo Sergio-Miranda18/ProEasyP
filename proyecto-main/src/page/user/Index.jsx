@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-
+import Favicon from 'react-favicon';
 export const Index = () => {
     
 
@@ -15,7 +15,9 @@ export const Index = () => {
                             <a href="/Reserva">Reservas</a>
                             <a href="/Lugares">Lugares</a>
                             <a href="VerR">Ver reservas</a>
+                            <a href="/Perfil">Perfil</a>
                             <a href="/">Salir</a>
+                            
                         
                     </ul>
                     <h1>EasyPlanning</h1>
@@ -27,6 +29,10 @@ export const Index = () => {
                         ¡Reserva ahora y comienza a crear recuerdos inolvidables!
                     </p>
                 </div>
+                <div>
+        <Favicon url="/images/eas.png" />
+       
+      </div>
             </header>
             <section className="Canchas">
                 <div className="Canchas-content container">
@@ -136,7 +142,7 @@ export const Index = () => {
                 <div className="blog-Content">
                     <div className="blog-1">
                         <img src="images/decoracion-bodas-playa.jpg" alt="" />
-                        <h3>EXPERIENCIA 1</h3>
+                        <h3>@Erick Hernandez</h3>
                         <p>
                             "EasyPlanning ha transformado la manera en que organizo mis eventos. 
                              La interfaz es intuitiva y encontrar el lugar perfecto para mi cumpleaños fue muy fácil. 
@@ -145,7 +151,7 @@ export const Index = () => {
                     </div>
                     <div className="blog-1">
                         <img src="images/salon.jpg" alt="" />
-                        <h3>EXPERIENCIA 2</h3>
+                        <h3>@Andres Pereira</h3>
                         <p>
                             "Tuve una experiencia maravillosa utilizando EasyPlanning para organizar una reunión de trabajo.
                             Las opciones de servicios personalizados hicieron que fuera mucho más sencillo coordinar todo. 
@@ -154,7 +160,7 @@ export const Index = () => {
                     </div>
                     <div className="blog-1">
                         <img src="images/eventos-sociales.jpg" alt="" />
-                        <h3>EXPERIENCIA 3</h3>
+                        <h3>@Maria Perez</h3>
                         <p>
                             "¡Me encantó usar EasyPlanning para nuestra boda! La variedad de lugares y paquetes es impresionante.
                              Además, el proceso de reserva fue rápido y sin complicaciones. 
@@ -181,29 +187,22 @@ export const Index = () => {
                         <ul>
                             <li><a href="#">Atencion de 8 am a 12 pm</a></li>
                             <li><a href="#">Sobre nosotros</a></li>
-                            <li><a href="#">Terminos y Condiciones</a></li>
+                            <li><a href="/TerminosCondiciones">Terminos y Condiciones</a></li>
                             <li><a href="#">Afiliate con nosotros</a></li>
                         </ul>
                     </div>
 
-                    <div className="link">
-                        <h3>QUEJAS Y RECLAMOS</h3>
-                        <ul>
-                        <li><a href="#">Lorem</a></li>
-                            <li><a href="#">Lorem</a></li>
-                            <li><a href="#">Lorem</a></li>
-                            <li><a href="#">Lorem</a></li>
-                            
-                        </ul>
-                    </div>
+                    
                     <div className="link">
                         <h3>¿QUIÉNES SOMOS?</h3>
+                        
                         <ul>
-                        <li><a href="https://www.instagram.com/easyplanning_reserves/profilecard/?igsh=ZWxoejB0Z241dGZu">INSTAGRAM</a></li>
-                            <li><a href="https://www.facebook.com/profile.php?id=61567854211544&mibextid=ZbWKwL">FACEBOOK</a></li>
-                            <li><a href="#">TWITTER</a></li>
-                            <li><a href="https://www.youtube.com/@EASYPLANNINGwmraic">YOUTUBE</a></li>
-                        </ul>
+                       <li><a href="https://www.instagram.com/easyplanning_reserves/profilecard/?igsh=ZWxoejB0Z241dGZu" target="_blank">INSTAGRAM</a></li>
+                       <li><a href="https://www.facebook.com/profile.php?id=61567854211544&mibextid=ZbWKwL" target="_blank">FACEBOOK</a></li>
+                       <li><a href="https://x.com/EASYPLANNINGg" target="_blank">TWITTER</a></li>
+                       <li><a href="https://www.youtube.com/@EASYPLANNINGwmraic/videos" target="_blank">YOUTUBE</a></li>
+                     </ul>
+
                     </div>
                 </div>
             </footer>
