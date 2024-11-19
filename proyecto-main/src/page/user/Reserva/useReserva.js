@@ -4,21 +4,31 @@ import { PAYU, API_BASE_URL } from "../../../environment";
 import { firmarDatos, formatearFechaColombia } from "../../../utils";
 import { v4 as uuidv4 } from "uuid";
 
-const DEFAULT_FROM_DATA = {
-  email: localStorage.getItem("email") || "",
-  precio: 0,
-  fechaHora: "",
-  local: "",
-  categoria: "",
-  estado: "EN PROCESO",
-  paquete: "",
-  descripcion: "",
-  firma: "",
-  codigoReferencia: "",
+const obtenerDatosIniciales = () => {
+  const selectedLugar = localStorage.getItem("selectedLugar");
+  let lugar = null;
+  try {
+    lugar = selectedLugar ? JSON.parse(selectedLugar) : null;
+  } catch {
+    console.error("Error al parsear selectedLugar desde localStorage");
+  }
+
+  return {
+    email: localStorage.getItem("email") || "",
+    precio: lugar?.precio || 0,
+    fechaHora: "",
+    local: lugar?.idLocal || "",
+    categoria: "",
+    estado: "EN PROCESO",
+    paquete: "",
+    descripcion: "",
+    firma: "",
+    codigoReferencia: uuidv4(),
+  };
 };
 
 export const useReserva = () => {
-  const [formData, setFormData] = useState(DEFAULT_FROM_DATA);
+  const [formData, setFormData] = useState(obtenerDatosIniciales());
   const [localTypes, setLocalTypes] = useState([]);
   const [categoriaTypes, setCategoriaTypes] = useState([]);
   const [paqueteTypes, setPaquetesTypes] = useState([]);
@@ -35,40 +45,37 @@ export const useReserva = () => {
 
   const obtenerReserva = (updatedFormData) => {
     const reservaString = [
-      formData.email,
+      updatedFormData.email,
       "EN PROCESO",
-      updatedFormData?.local ?? "",
-      updatedFormData?.fechaHora ?? "",
-      updatedFormData?.precio ?? 0,
-      updatedFormData?.categoria ?? "",
-      updatedFormData?.paquete ?? "",
+      updatedFormData.local || "",
+      updatedFormData.fechaHora || "",
+      updatedFormData.precio || 0,
+      updatedFormData.categoria || "",
+      updatedFormData.paquete || "",
     ].join(",");
-
     return reservaString;
   };
 
   const obtenerDescripcion = (updatedFormData) => {
     const selectedLocal = localTypes.find(
-      (local) => local.idLocal == updatedFormData.local
+      (local) => local.idLocal === updatedFormData.local
     );
     const selectedCategory = categoriaTypes.find(
-      (categoria) => categoria.id == updatedFormData.categoria
+      (categoria) => categoria.id === updatedFormData.categoria
     );
     const selectedPaquete = paqueteTypes.find(
-      (paquete) => paquete.id == updatedFormData.paquete
+      (paquete) => paquete.id === updatedFormData.paquete
     );
-    const fecha = formatearFechaColombia(Date(updatedFormData?.fechaHora));
-    const descripcion = `Reserva en el ${selectedLocal?.nombre} con el paquete ${selectedPaquete?.nombre}. Categoría: ${selectedCategory?.descripcion}. Evento programado para: ${fecha}.`;
-
-    return descripcion;
+    const fecha = formatearFechaColombia(new Date(updatedFormData?.fechaHora));
+    return `Reserva en el ${selectedLocal?.nombre} con el paquete ${selectedPaquete?.nombre}. Categoría: ${selectedCategory?.descripcion}. Evento programado para: ${fecha}.`;
   };
 
-  const getPrecioPorLocalSeleccioando = async (selectedLocal) => {
+  const getPrecioPorLocalSeleccionado = async (selectedLocal) => {
     try {
       const response = await axios.get(
         `${API_BASE_URL}/local/${selectedLocal}`
       );
-      return response.data;
+      return response.data.precio || 0;
     } catch (error) {
       console.error("Error al obtener el precio del lugar seleccionado", error);
       return 0;
@@ -77,7 +84,7 @@ export const useReserva = () => {
 
   const handleLocalChange = async (e) => {
     const selectedLocal = e.target.value;
-    const precio = await getPrecioPorLocalSeleccioando(selectedLocal);
+    const precio = await getPrecioPorLocalSeleccionado(selectedLocal);
 
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -87,32 +94,28 @@ export const useReserva = () => {
   };
 
   const handleReset = () => {
-    setFormData(DEFAULT_FROM_DATA);
+    setFormData(obtenerDatosIniciales());
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [localResponse, paqueteResponse, categoriaResponse] =
-          await Promise.allSettled([
+          await Promise.all([
             axios.get(`${API_BASE_URL}/local/get`),
             axios.get(`${API_BASE_URL}/paquete/get`),
             axios.get(`${API_BASE_URL}/categoria/get`),
           ]);
 
-        setLocalTypes(localResponse.value.data);
-        setPaquetesTypes(paqueteResponse.value.data);
-        setCategoriaTypes(categoriaResponse.value.data);
+        setLocalTypes(localResponse.data || []);
+        setPaquetesTypes(paqueteResponse.data || []);
+        setCategoriaTypes(categoriaResponse.data || []);
       } catch (error) {
         console.error("Error al obtener datos de la base de datos", error);
       }
     };
 
     fetchData();
-  }, []);
-
-  useEffect(() => {
-    setFormData((prev) => ({ ...prev, codigoReferencia: uuidv4() }));
   }, []);
 
   const handleChange = (e) => {
@@ -128,8 +131,6 @@ export const useReserva = () => {
       descripcion: obtenerDescripcion(updatedFormData),
     });
   };
-
-  useEffect(() => console.log("fromdata", formData), [formData])
 
   return {
     handleChange,
