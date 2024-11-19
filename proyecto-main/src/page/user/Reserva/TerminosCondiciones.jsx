@@ -30,7 +30,7 @@ const TerminosCondiciones = () => {
         <div className="card-content">
           <h2 className="card-header">2. Política de Reservas y Cancelaciones</h2>
           <div className="card-warning">
-            <strong>Importante:</strong> Al realizar una reserva, el usuario acepta expresamente que en caso de cancelación, no se realizarán reembolsos del monto pagado.
+            <strong>Importante:</strong> Al realizar una reserva, el usuario acepta expresamente que en caso de cancelación, se reembolsara solo un porcentaje del dinero , esto por el inconveniente de una reserva fallida .
           </div>
           <p className="card-text">Esta política se establece debido a:</p>
           <ul className="card-list">
