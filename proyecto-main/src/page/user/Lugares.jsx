@@ -27,6 +27,11 @@ export const Lugares = () => {
         lugar.nombre.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const handleReserva = (lugar) => {
+        localStorage.setItem('selectedLugar', JSON.stringify(lugar));
+        navigate('/Reserva'); 
+    };
+
     return (
         <div className="lugares-container">
             <button className="btn-back" onClick={() => navigate(-1)}>Atrás</button>
@@ -57,7 +62,12 @@ export const Lugares = () => {
                                     <h5 className="card-title">{lugar.nombre}</h5>
                                     <p className="card-text">{lugar.descripcion}</p>
                                     <p className="card-text">{lugar.ubicacion}</p>
-                                    <a href="/Reserva" className="btn btn-primary">¡RESERVA AHORA!</a>
+                                    <button 
+                                        className="btn btn-primary"
+                                        onClick={() => handleReserva(lugar)}
+                                    >
+                                        ¡RESERVA AHORA!
+                                    </button>
                                 </div>
                             </div>
                         </div>
