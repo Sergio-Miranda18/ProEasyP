@@ -564,7 +564,9 @@ margin-left: -30px;
     text-decoration: underline 5px #fffb12;
     text-decoration-thickness: 10px;
 }
-
+.header-links :hover{
+    color: #fffb12;
+}
 @media(max-width: 767px) {
     /* Header */
     .header1 {
